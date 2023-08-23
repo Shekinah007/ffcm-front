@@ -1,5 +1,5 @@
 import logo1 from "../assets/images/ffcmLogo.png"
-import { TypeAnimation } from 'react-type-animation';
+// import { TypeAnimation } from 'react-type-animation';
 import worshipImg from "../assets/images/pexels-luis-quintero-2014775.jpg"
 
 const Home = () => {
