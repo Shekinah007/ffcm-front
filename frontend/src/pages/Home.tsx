@@ -5,7 +5,8 @@ const Home = () => {
         <div className="">
             <div className="overlay h-screen w-screen absolute top-0 bg-black opacity-40"></div>
             <div>
-                <div className="bg-bg1 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl text-gray-300 justify-center items-center">
+                <div className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl text-gray-300 justify-center items-center">
+                    {/* <div className="bg-bg1 md:bg-bg2"> */}
                     <img alt="logo" className="h-36 z-10" src={logo1} />
                     <div className="flex flex-col z-10 items-center">
                         <p className="italic text-gray-300 text-base">- We Walk By Faith And Not By Sight -</p>
