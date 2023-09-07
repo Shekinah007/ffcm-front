@@ -15,7 +15,7 @@ const Navbar = (): ReactElement => {
 
     const highlightPage = (page: string): void => {
 
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
 
         setTimeout((): void => {
             setCurrentPage(page)

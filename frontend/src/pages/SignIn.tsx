@@ -8,11 +8,9 @@ const SignIn = () => {
 
     let navigate = useNavigate()
 
-    function signInAdmin(e: any) {
+    async function signInAdmin(e: any) {
         e.preventDefault();
-        // <Navigate to="/adminDashboard" replace={true} />
         navigate("/adminDashboard")
-        console.log("Admin Dashboard")
     }
 
     return (
@@ -42,8 +40,8 @@ const SignIn = () => {
                         <label htmlFor="password"></label>
                         <input id="password" type="password" required minLength={4} placeholder="Password" className="p-2 text-black rounded-md" />
                     </div>
-                    <hr className="w-[200px] mt-5" />
-                    <button className="bg-white text-yellow-400 rounded-md font-semibold text-lg w-[150px] self-center" onClick={(e) => { signInAdmin(e); }} >Login</button>
+                    <hr className="w-[200px] mt-5 " />
+                    <button className="bg-white text-yellow-400 rounded-md font-semibold text-lg w-[150px] self-center py-1" onClick={(e) => { signInAdmin(e); }} >Login</button>
                 </form>
             </div>
         </div>

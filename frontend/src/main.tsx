@@ -9,12 +9,14 @@ import About from './pages/About.tsx'
 import Contact from './pages/Contact.tsx'
 import SignIn from './pages/SignIn.tsx'
 import AdminDashboard from './pages/AdminDashboard.tsx'
+import NotFoundPage from './pages/NotFoundPage.tsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",
