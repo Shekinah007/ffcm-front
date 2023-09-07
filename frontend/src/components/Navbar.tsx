@@ -3,15 +3,15 @@ import { ReactElement, useState } from 'react';
 import shieldLogo from "../assets/images/shieldLogo.png"
 import churchLogo from "../assets/images/ffcmLogo.png"
 import { Link } from "react-router-dom"
-interface Menu {
-    currentPage: string;
-}
+// interface Menu {
+//     currentPage: string;
+// }
 
 
-const Navbar = ({ }: Menu): ReactElement => {
+const Navbar = (): ReactElement => {
 
     const [open, setOpen] = useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState<String>("HOME")
+    const [currentPage, setCurrentPage] = useState<String>("Home")
 
     const highlightPage = (page: string): void => {
 
@@ -20,7 +20,7 @@ const Navbar = ({ }: Menu): ReactElement => {
         setTimeout((): void => {
             setCurrentPage(page)
             setOpen(false);
-        }, 500)
+        }, 0)
 
     }
 
@@ -32,15 +32,16 @@ const Navbar = ({ }: Menu): ReactElement => {
                 <img src={shieldLogo} alt="logo home" className='h-16 hidden md:block' />
             </div>
             <div className={`absolute top-50% left-3 w-11/12 flex flex-row items-center justify-between gap-2 duration-500 -translate-y-0 ${open && "-translate-y-36"} md:hidden`}>
-                <p className="page underline"> {currentPage} </p>
+                <p className="page  text-lg"> {currentPage} </p>
                 <img src={churchLogo} alt="logo" className="h-7" />
             </div>
-            <div className={`nav  h-0 overflow-hidden py-0 px-3 duration-300  ${open && 'h-48'} font-semibold md:p-3 md:py-3 md:h-10 flex flex-col justify-end md:items-center top-28 left-0 gap-3 w-screen md:static md:flex-row`} >
-                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("HOME"); }}> - HOME - </Link>
-                <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("CONTACT"); }}> - CONTACT - </Link>
-                <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" > - ABOUT - </a>
-                {/* <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - CONTACT - </a> */}
-                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - PAYMENTS & DONATIONS - </Link>
+            <div className={`nav  h-0 overflow-hidden py-0 px-3 duration-300 text-xl  ${open && 'h-48'} font-semibold md:p-3 md:py-3 md:h-10 flex flex-col justify-end md:items-center top-28 left-0 gap-3 w-screen md:static md:flex-row`} >
+                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Home"); }}> - Home  </Link>
+                {/* <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Contact"); }}> - Contact - </Link> */}
+                <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" > - About  </a>
+                {/* <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Contact  </a> */}
+                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Financing  </Link>
+                <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> - SignIn  </Link>
 
             </div>
             <div>

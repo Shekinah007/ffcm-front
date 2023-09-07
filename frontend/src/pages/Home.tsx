@@ -42,8 +42,8 @@ const Home = () => {
         <div id="" className="home-page">
             {/* {() => textAnimations()} */}
             <div className="overlay h-screen w-screen absolute top-0 bg-black opacity-40"></div>
-            <div>
-                <div id="home" className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl text-gray-300 justify-center items-center">
+            <div className="bg-white">
+                <div id="home" className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl bg-black text-gray-300 justify-center items-center">
                     <img alt="logo" className="h-36 z-10 duration-200 custom-rotate " src={logo1} />
                     <div className="flex flex-col z-10 items-center text-center mx-3 h-3">
                         {/* <p className="italic text-gray-300 text-base">- We Walk By Faith And Not By Sight -</p> */}

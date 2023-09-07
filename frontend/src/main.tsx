@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.tsx'
 import About from './pages/About.tsx'
 import Contact from './pages/Contact.tsx'
+import SignIn from './pages/SignIn.tsx'
+import AdminDashboard from './pages/AdminDashboard.tsx'
 
 
 const router = createBrowserRouter([
@@ -25,9 +27,21 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />
-      }
+      },
+      {
+        path: "/signin",
+        element: <SignIn />
+      },
+      // {
+      //   path: "/adminDashboard",
+      //   element: <AdminDashboard />
+      // }
     ]
   },
+  {
+    path: "/adminDashboard",
+    element: <AdminDashboard />
+  }
   // {
   //   path: "/about",
   //   element: <About />

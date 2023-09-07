@@ -31,16 +31,20 @@
 }
 
 .contact-page,
-.home-page {
-    animation: entrance 0.5s;
+.home-page,
+.sign-page,
+.admin-dashboard {
+    animation: entrance 0.7s;
 }
 
 @keyframes entrance {
     from {
-        transform: translateY(-500px);
+        /* transform: translateY(-500px); */
+        opacity: 0;
     }
 
     to {
         transform: translateY(0);
+        opacity: 1;
     }
 }
