@@ -33,8 +33,37 @@
 .contact-page,
 .home-page,
 .sign-page,
-.admin-dashboard {
+.admin-dashboard,
+.not-found {
     animation: entrance 0.7s;
+}
+
+.verse {
+    /* animation: entrance 1s; */
+    animation: verseAnims 4s;
+}
+
+.ref {
+    animation: entrance 3s;
+    /* animation: verseAnims 6s; */
+}
+
+@keyframes verseAnims {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes entrance {

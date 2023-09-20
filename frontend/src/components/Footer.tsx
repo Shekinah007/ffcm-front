@@ -27,6 +27,9 @@ const Footer = () => {
                     <div>
                         <p className="text-gray-500">Addresses:</p>
                         <p>Ogheghe Road, by Iduwe Avenue, Off Sapele Road, Benin, Nigeria (HQ)</p>
+                        <hr />
+                        <hr />
+                        <hr />
                         <p>201, Siluko Rd, Ogida Qtrs, Benin City, Nigeria, Africa, Earth (OGIDA)</p>
                     </div>
                     <div>

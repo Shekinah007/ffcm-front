@@ -5,7 +5,7 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+    <div className="not-found min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-800 text-white">
       <h1 className="font-bold text-4xl text-red-400">Oops!</h1>
       <p className="">Sorry, an unexpected error has occured.</p>
       <p className="italic text-gray-400 font-bold"> 404 - Page Not Found</p>

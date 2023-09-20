@@ -2,42 +2,53 @@ import logo1 from "../assets/images/ffcmLogo.png"
 import { TypeAnimation } from 'react-type-animation';
 import worshipImg from "../assets/images/pexels-luis-quintero-2014775.jpg"
 import About from "./About"
+import { useEffect, useState } from "react";
 
 const Home = () => {
 
-    // function textAnimations() {
 
-    //     let verses: Array<object> = [
-    //         {
-    //             text: "We walk by faith and not by sight",
-    //             ref: "2 Corinthians 5:7"
-    //         },
-    //         {
-    //             text: "Let all that you do be done in love",
-    //             ref: "1 Corinthians 3:14"
-    //         },
-    //         {
-    //             text: "So now faith, hope, and love abide, these three; but the greatest is these is love.",
-    //             ref: "1 Corinthians 13:13"
-    //         },
-    //         {
-    //             text: "If you love me, you will keep my commandments",
-    //             ref: "John 14:15"
-    //         },
-    //         {
-    //             text: "Anyone who does not love does not know God, because God is love",
-    //             ref: "1 John 4:18"
-    //         }
-    //     ]
 
-    //     for (let i = 0; i < verses.length; i++) {
-    //         if (i == verses.length - 1) {
-    //             i = 0;
-    //         }
-    //         console.log("Hello")
-    //     }
+    let verses = [
+        {
+            text: "We walk by faith and not by sight",
+            ref: "2 Corinthians 5:7"
+        },
+        {
+            text: "Let all that you do be done in love",
+            ref: "1 Corinthians 3:14"
+        },
+        {
+            text: "So now faith, hope, and love abide, these three; but the greatest is these is love.",
+            ref: "1 Corinthians 13:13"
+        },
+        {
+            text: "If you love me, you will keep my commandments",
+            ref: "John 14:15"
+        },
+        {
+            text: "Anyone who does not love does not know God, because God is love",
+            ref: "1 John 4:18"
+        }
+    ]
 
-    // }
+    const [currentVerse, setCurrentVerse] = useState(verses[0])
+    console.log("currentVerse: ", currentVerse.ref)
+
+
+
+    useEffect(() => {
+        let i = 0;
+        setInterval(() => {
+            if (i == verses.length - 1) {
+                i = 0;
+            }
+            // console.log(verses[i])
+            setCurrentVerse(verses[i])
+            i++;
+        }, 4000);
+    }, [])
+
+
     return (
         <div id="" className="home-page">
             {/* {() => textAnimations()} */}
@@ -46,15 +57,16 @@ const Home = () => {
                 <div id="home" className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl bg-black text-gray-300 justify-center items-center">
                     <img alt="logo" className="h-36 z-10 duration-200 custom-rotate " src={logo1} />
                     <div className="flex flex-col z-10 items-center text-center mx-3 h-3">
-                        {/* <p className="italic text-gray-300 text-base">- We Walk By Faith And Not By Sight -</p> */}
+                        {/* <p className="italic text-gray-300 text-lg verse" key={currentVerse.text}>- {currentVerse.text} -</p> */}
+
                         <TypeAnimation
                             sequence={[
                                 // Same substring at the start will only be typed out once, initially
                                 '- We walk by faith and not by sight -',
                                 400, // wait 1s before replacing "Mice" with "Hamsters"
-                                ' So faith comes from hearing, and hearing through the word of Christ',
+                                '- So faith comes from hearing, and hearing through the word of Christ -',
                                 400,
-                                'For nothing will be impossible with God',
+                                '- For nothing will be impossible with God -',
                                 400,
 
                             ]}
@@ -62,9 +74,12 @@ const Home = () => {
                             speed={20}
                             style={{ fontSize: '1em', display: 'inline-block', fontStyle: "italic" }}
                             repeat={Infinity}
-                            cursor={false}
+                            cursor={true}
                         />
+                        {/* <p className="italic text-blue-200 text-lg ref" key={currentVerse.ref}> {currentVerse.ref} </p> */}
+
                     </div>
+
 
                 </div>
                 {/* <div id="about className="about flex gap-3 flex-col md:flex-row flex-wrap ">
@@ -105,5 +120,7 @@ const Home = () => {
         </div>
     )
 }
+
+
 
 export default Home

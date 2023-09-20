@@ -2,6 +2,8 @@ import { ReactElement, useState } from 'react';
 
 import shieldLogo from "../assets/images/shieldLogo.png"
 import churchLogo from "../assets/images/ffcmLogo.png"
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 import { Link } from "react-router-dom"
 // interface Menu {
 //     currentPage: string;
@@ -33,21 +35,20 @@ const Navbar = (): ReactElement => {
             </div>
             <div className={`absolute top-50% left-3 w-11/12 flex flex-row items-center justify-between gap-2 duration-500 -translate-y-0 ${open && "-translate-y-36"} md:hidden`}>
                 <p className="page  text-lg"> {currentPage} </p>
-                <img src={churchLogo} alt="logo" className="h-7" />
+                <Link to={"/"}><img src={churchLogo} alt="logo" className="h-7" /></Link>
             </div>
             <div className={`nav  h-0 overflow-hidden py-0 px-3 duration-300 text-xl  ${open && 'h-48'} font-semibold md:p-3 md:py-3 md:h-10 flex flex-col justify-end md:items-center top-28 left-0 gap-3 w-screen md:static md:flex-row`} >
                 <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Home"); }}> - Home  </Link>
                 {/* <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Contact"); }}> - Contact - </Link> */}
                 <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" > - About  </a>
                 {/* <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Contact  </a> */}
-                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Financing  </Link>
+                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Giving  </Link>
                 <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> - SignIn  </Link>
 
             </div>
             <div>
                 <span className={`menu-btn md:hidden text-yellow-500 self-center translate-y-6 duration-500 text-3xl border-2 ${!open && " -scale-y-100"} h-12 w-12 bg-black flex items-center justify-center rounded-full`} onClick={(): void => { setOpen(prev => !prev) }}>
-                    ^
-                    {/* <img src={shieldLogo} alt="menu button" className='h-16' /> */}
+                    <ExpandLessIcon />
                 </span>
             </div>
         </div >
