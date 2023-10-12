@@ -56,5 +56,4 @@ const Navbar = (): ReactElement => {
 }
 
 
-
 export default Navbar
