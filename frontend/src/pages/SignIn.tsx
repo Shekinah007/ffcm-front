@@ -2,8 +2,6 @@ import { Link, useNavigate } from "react-router-dom"
 
 
 
-
-
 const SignIn = () => {
 
     let navigate = useNavigate()
@@ -45,7 +43,6 @@ const SignIn = () => {
                 </form>
                 <p className="text-sm text-black">Don't have an account? Register <Link to={"/register"} className="text-blue-700">here</Link></p>
             </div>
-
         </div>
     )
 }
