@@ -10,6 +10,7 @@ import Contact from './pages/Contact.tsx'
 import SignIn from './pages/SignIn.tsx'
 import AdminDashboard from './pages/AdminDashboard.tsx'
 import NotFoundPage from './pages/NotFoundPage.tsx'
+import Register from './components/Register.tsx'
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: "/signin",
         element: <SignIn />
       },
+      {
+        path: "/register",
+        element: <Register />
+      }
       // {
       //   path: "/adminDashboard",
       //   element: <AdminDashboard />

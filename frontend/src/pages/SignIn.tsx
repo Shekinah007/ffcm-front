@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
@@ -43,7 +43,9 @@ const SignIn = () => {
                     <hr className="w-[200px] mt-5 " />
                     <button className="bg-white text-yellow-400 rounded-md font-semibold text-lg w-[150px] self-center py-1" onClick={(e) => { signInAdmin(e); }} >Login</button>
                 </form>
+                <p className="text-sm text-black">Don't have an account? Register <Link to={"/register"} className="text-blue-700">here</Link></p>
             </div>
+
         </div>
     )
 }
