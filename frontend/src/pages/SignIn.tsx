@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 
 
 
@@ -22,9 +23,10 @@ const SignIn = () => {
         }).then(res => {
             if (res.ok) {
                 console.log("Login successful!!")
+                toast("Login Successfull")
                 return res.json()
             } else {
-                console.log("Login failed!!")
+                toast("Login failed!!")
                 console.log(res)
                 return ""
             }
@@ -34,7 +36,9 @@ const SignIn = () => {
             }
             console.log("Login Success!", data)
             console.log(data.accessToken)
-            navigate("/adminDashboard");
+            setTimeout(() => {
+                navigate("/adminDashboard");
+            }, 1000)
         })
     }
 
