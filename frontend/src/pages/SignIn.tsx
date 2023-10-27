@@ -8,38 +8,56 @@ const SignIn = () => {
 
     let navigate = useNavigate()
 
-    const [username, setUsername] = useState<string>("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState<string>("");
 
-    async function signInAdmin(e: any) {
+
+
+
+    function signInAdmin(e: any) {
         e.preventDefault();
 
-        const loginData = { username, password }
+        const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
-        fetch("http://localhost:3000/auth/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(loginData)
-        }).then(res => {
-            if (res.ok) {
-                console.log("Login successful!!")
-                toast("Login Successfull")
-                return res.json()
-            } else {
-                toast("Login failed!!")
-                console.log(res)
-                return ""
-            }
-        }).then(data => {
-            if (!data) {
-                return ""
-            }
-            console.log("Login Success!", data)
-            console.log(data.accessToken)
-            setTimeout(() => {
-                navigate("/adminDashboard");
-            }, 1000)
-        })
+
+
+        if (username == "" || password == "") {
+            return;
+        }
+
+
+        if (username.match(emailReg)) {
+            const loginData = { username, password }
+
+            fetch("http://localhost:3000/auth/login/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(loginData)
+            }).then(res => {
+                if (res.ok) {
+                    console.log("Login successful!!")
+                    toast("Login Successfull")
+                    return res.json()
+                } else {
+                    toast("Login failed!!")
+                    console.log(res)
+                    return ""
+                }
+            }).then(data => {
+                if (!data) {
+                    return ""
+                }
+                console.log("Login Success!", data)
+                console.log(data.accessToken)
+                localStorage.setItem("username", data.username)
+                localStorage.setItem("accessToken", data.accessToken)
+                setTimeout(() => {
+                    navigate("/adminDashboard");
+                }, 1500)
+            })
+        }
+
+        console.log("Submitted!!")
     }
 
     return (

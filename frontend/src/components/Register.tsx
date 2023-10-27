@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
@@ -37,14 +38,20 @@ const Register = () => {
                 body: JSON.stringify(userData),
             }).then(res => {
                 if (res.ok) {
+                    toast("Registration successful")
                     return res.json()
                 } else {
                     console.log("Error, unable to complete fetch request");
                     return ""
                 }
             }).then(data => {
-                navigate("/signin")
                 console.log("DATA", data)
+                if (!data) {
+                    toast("Registration failed")
+                }
+                setTimeout(() => {
+                    navigate("/signin")
+                }, 800)
             })
             console.log("Submitted!!")
         }

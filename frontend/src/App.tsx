@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="bg-black">
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
       <Navbar />
       <div className="">
         <Outlet />
