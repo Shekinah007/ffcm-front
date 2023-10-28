@@ -44,7 +44,7 @@ const AdminDashboard = () => {
         <div className="admin-dashboard flex flex-col ">
             <Navbar />
             <div className="pt-20 flex flex-col bg-gray-200 p-2">
-                <p className="text-xl font-bold absolute top-12 md:top-0 md:relative  ">Welcome</p>
+                <p className="text-xl font-bold absolute top-12 md:top-0 md:relative">Welcome {firstName && firstName}</p>
                 <div className="text-black text-2xl text-center">
                     <p>{firstName && firstName} {lastName && lastName}</p>
                 </div>
