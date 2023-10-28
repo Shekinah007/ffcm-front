@@ -87,7 +87,7 @@ const Register = () => {
         <div className='sign-page pt-14 min-h-screen flex flex-col justify-center text-center items-center bg-bg3 bg-cover bg-no-repeat'>
             <div>
             </div>
-            <div className="rounded-lg bg-yellow-400/90 text-white w-[85%] py-10 flex flex-col  justify-center gap-3">
+            <div className="rounded-lg bg-yellow-400/90 text-white w-[85%] md:w-[400px] py-10 flex flex-col  justify-center gap-3">
                 <div className="">
                     {/* <h2 className="font-semibold text-xl text-center">Register</h2> */}
                     {/* <hr className="w-[200px] mt-1 mb-5" /> */}

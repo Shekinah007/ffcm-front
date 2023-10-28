@@ -8,13 +8,13 @@ const Contact = () => {
     const [message, setMessage] = useState<string>("")
 
     return (
-        <div className="contact-page pt-12 min-h-[500px] flex flex-col  gap-4 justify-center items-center border border-y-yellow-400 w-full bg-white py-10">
+        <div className="contact-page pt-12 min-h-[500px] flex flex-col  gap-4 justify-center items-center border border-y-yellow-400 w-full bg-gray-100 py-10">
             <h2 className="text-5xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>
-            <form className="bg-white min-h-[200px] w flex flex-col gap-7 justify-center p-3 rounded-md w-[90%] md:w-[500px] py-5 card">
+            <form className="bg-gray-100 min-h-[200px] w flex flex-col gap-7 justify-center p-3 rounded-md w-[90%] md:w-[400px] py-5 card">
 
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="name" className="pl-3 font-semibold text-xl">Name <span className="text-red-600 font-bold">*</span></label>
+                    <label htmlFor="name" className="pl-5 font-semibold text-md">Name <span className="text-red-600 font-bold">*</span></label>
                     <input
                         id="name"
                         onChange={(e) => setName(e.target.value)}
@@ -23,7 +23,7 @@ const Contact = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="email" className="pl-3 font-semibold text-xl">Email <span className="text-red-600 font-bold">*</span></label>
+                    <label htmlFor="email" className="pl-5 font-semibold text-md">Email <span className="text-red-600 font-bold">*</span></label>
                     <input
                         id="email"
                         onChange={(e) => setEmail(e.target.value)}
@@ -33,7 +33,7 @@ const Contact = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="phone" className="pl-3 font-semibold text-xl">Mobile Number <span className="text-red-600 font-bold">*</span></label>
+                    <label htmlFor="phone" className="pl-5 font-semibold text-md">Mobile Number <span className="text-red-600 font-bold">*</span></label>
                     <input
                         id="phone"
                         onChange={(e) => setPhone(e.target.value)}
@@ -42,7 +42,7 @@ const Contact = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="message" className="pl-3 font-semibold text-xl">Message </label>
+                    <label htmlFor="message" className="pl-5 font-semibold text-md">Message </label>
                     <textarea
                         id="message"
                         onChange={(e) => setMessage(e.target.value)}
