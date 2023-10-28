@@ -3,6 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 import worshipImg from "../assets/images/pexels-luis-quintero-2014775.jpg"
 import About from "./About"
 import { useEffect, useState } from "react";
+import Contact from "./Contact";
 
 const Home = () => {
 
@@ -116,6 +117,8 @@ const Home = () => {
                     <img src={worshipImg} alt="" className="w-screen md:w-1/2 md:block" />
 
                 </div>
+                <Contact />
+
             </div>
         </div>
     )
