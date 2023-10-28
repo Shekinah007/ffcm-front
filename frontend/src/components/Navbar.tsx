@@ -41,19 +41,21 @@ const Navbar = (): ReactElement => {
                 <p className="page  text-lg"> {currentPage} </p>
                 <Link to={"/"}><img src={churchLogo} alt="logo" className="h-7" /></Link>
             </div>
-            <div className={`nav h-0 overflow-hidden py-0 px-3 duration-300 text-xl   ${open && 'h-60 pt-0 mt-5'} font-semibold md:p-3 md:py-3 md:h-10 flex flex-col justify-center  md:justify-end md:items-center gap-3 w-screen md:static md:flex-row`} >
-                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Home"); }}> - Home  </Link>
+            <div className={`nav h-0 overflow-hidden py-0 px-3 duration-300 text-xl   ${open && 'h-64 pt-0 mt-5'} font-semibold md:p-3 md:py-3 md:h-10 flex flex-col justify-center  md:justify-end md:items-center gap-3 w-screen md:static md:flex-row`} >
+                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Home"); }}> <span className="md:hidden">-</span> Home  </Link>
                 {/* <hr /> */}
-                {/* <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Contact"); }}> - Contact - </Link> */}
-                <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" > - About  </a>
-                {/* <hr /> */}
-
-                <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Contact  </a>
-                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> - Giving  </Link>
+                {/* <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Contact"); }}> <span className="md:hidden">-</span> Contact - </Link> */}
+                <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" > <span className="md:hidden">-</span> About  </a>
                 {/* <hr /> */}
 
-                <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> - SignIn  </Link>
+                <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Contact  </a>
+                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Giving  </Link>
                 {/* <hr /> */}
+
+                <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> <span className="md:hidden">-</span> SignIn  </Link>
+                {/* <hr /> */}
+
+                <Link to={"/adminDashboard"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Dashboard") }}> <span className="md:hidden">-</span> Dashboard  </Link>
 
             </div>
             <div>
