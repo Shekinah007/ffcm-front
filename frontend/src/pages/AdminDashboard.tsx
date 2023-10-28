@@ -21,7 +21,7 @@ const AdminDashboard = () => {
             }
         }).then(res => {
             if (res.ok) {
-                toast("Success")
+                // toast("Success")
                 return res.json()
             } else {
                 toast("Error")

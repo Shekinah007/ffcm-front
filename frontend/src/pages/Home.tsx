@@ -33,7 +33,7 @@ const Home = () => {
     ]
 
     const [currentVerse, setCurrentVerse] = useState(verses[0])
-    console.log("currentVerse: ", currentVerse.ref)
+    // console.log("currentVerse: ", currentVerse.ref)
 
 
 

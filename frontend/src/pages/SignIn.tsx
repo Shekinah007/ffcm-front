@@ -56,7 +56,7 @@ const SignIn = () => {
                     toast("Login Successfull")
                     return res.json()
                 } else {
-                    toast("Login failed!!")
+                    toast("Login failed. Invalid email or password")
                     // console.log(res)
                     return ""
                 }
