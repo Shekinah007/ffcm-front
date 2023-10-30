@@ -118,7 +118,6 @@ const Home = () => {
 
                 </div>
                 <Contact />
-
             </div>
         </div>
     )

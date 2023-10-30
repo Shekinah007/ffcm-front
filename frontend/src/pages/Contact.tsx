@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
 
 const Contact = () => {
 
@@ -6,12 +7,54 @@ const Contact = () => {
     const [email, setEmail] = useState<string>("")
     const [phone, setPhone] = useState<string>("")
     const [message, setMessage] = useState<string>("")
+    const [visibility, setVisibility] = useState(false)
+
+    const handleContactForm = (e: any) => {
+        e.preventDefault()
+
+        const contactData = {
+            name: name,
+            email: email,
+            mobile: phone,
+            message: message
+        }
+
+        fetch("https://ffcm.zeabur.app/question", {
+            // fetch("http://localhost:3000/question", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(contactData)
+        }).then(res => {
+            if (res.ok) {
+                toast("Message sent successfully!!")
+                setVisibility(true)
+                return res.json()
+            } else {
+                toast("Sorry, an error occurred.")
+                console.log(res)
+                return ""
+            }
+        }).then((data) => {
+            console.log(data)
+            if (data) {
+                console.log("Contact Data: ", data)
+            }
+        })
+    }
 
     return (
-        <div className="contact-page pt-12 min-h-[500px] flex flex-col  gap-4 justify-center items-center border border-y-yellow-400 w-full bg-gray-100 py-10">
+        <div className={`
+        contact-page py-10 min-h-[500px] flex flex-col gap-4 justify-center 
+        items-center border border-y-yellow-400 w-full bg-gray-100  duration-500 transition-all
+        ${visibility && "h-0 p-0  m-0 overflow-hidden min-h-0 py-[0]"}
+        `}>
             <h2 className="text-5xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>
-            <form className="bg-gray-100 min-h-[200px] w flex flex-col gap-7 justify-center p-3 rounded-md w-[90%] md:w-[400px] py-5 card">
+            <form
+                onSubmit={handleContactForm}
+                className="bg-gray-100 min-h-[200px] w flex flex-col gap-7 justify-center p-3 rounded-md w-[90%] md:w-[400px] py-5 card">
 
                 <div className="flex flex-col gap-1">
                     <label htmlFor="name" className="pl-5 font-semibold text-md">Name <span className="text-red-600 font-bold">*</span></label>
@@ -42,7 +85,7 @@ const Contact = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="message" className="pl-5 font-semibold text-md">Message </label>
+                    <label htmlFor="message" className="pl-5 font-semibold text-md">Message <span className="text-red-600 font-bold">*</span></label>
                     <textarea
                         id="message"
                         onChange={(e) => setMessage(e.target.value)}
