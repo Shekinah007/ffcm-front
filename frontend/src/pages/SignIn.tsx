@@ -43,7 +43,8 @@ const SignIn = () => {
         if (username.match(emailReg)) {
             const loginData = { username, password }
 
-            fetch("http://localhost:3000/auth/login/", {
+            // fetch("http://localhost:3000/auth/login/", {
+            fetch("https://ffcm.zeabur.app/auth/login/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData)

@@ -56,7 +56,8 @@ const Register = () => {
         console.log("passed")
 
 
-        fetch("http://localhost:3000/auth/register", {
+        // fetch("http://localhost:3000/auth/register", {
+        fetch("https://ffcm.zeabur.app/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

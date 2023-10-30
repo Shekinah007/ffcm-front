@@ -13,7 +13,8 @@ const AdminDashboard = () => {
     useEffect(() => {
         console.log("Access token", accessToken)
 
-        fetch("http://localhost:3000/user/profile", {
+        // fetch("http://localhost:3000/user/profile", {
+        fetch("https://ffcm.zeabur.app/user/profile", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
