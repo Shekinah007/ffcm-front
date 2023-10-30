@@ -48,7 +48,7 @@ const Contact = () => {
         <div className={`
         contact-page py-10 min-h-[500px] flex flex-col gap-4 justify-center 
         items-center border border-y-yellow-400 w-full bg-gray-100  duration-500 transition-all
-        ${visibility && "h-0 p-0  m-0 overflow-hidden min-h-0 py-[0]"}
+        ${visibility && "overflow-hidden h-0 min-h-0 py-[0]"}
         `}>
             <h2 className="text-5xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>
