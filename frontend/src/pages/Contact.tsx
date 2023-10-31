@@ -17,22 +17,22 @@ const Contact = () => {
         const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
         if (!name || !email || !phone || !message) {
-            toast("Please fill in all the available fields.")
+            toast.info("Please fill in all the available fields.")
             return;
         }
 
         if (email.match(emailReg) == null) {
-            toast("Your email address in not valid. E.g 'justice@gmail.com'");
+            toast.info("Your email address in not valid. E.g 'justice@gmail.com'");
             return
         }
 
         if (phone.length < 10) {
-            toast("Please enter a valid phone number")
+            toast.info("Please enter a valid phone number")
             return;
         }
 
         if (isNaN(+phone)) {
-            toast("Please enter a valid phone number")
+            toast.info("Please enter a valid phone number")
             return;
         }
 
@@ -53,11 +53,11 @@ const Contact = () => {
             body: JSON.stringify(contactData)
         }).then(res => {
             if (res.ok) {
-                toast("Message sent!")
+                toast.success("Message sent!")
                 setVisibility(true)
                 return res.json()
             } else {
-                toast("Sorry, an error occurred.")
+                toast.error("Sorry, an error occurred.")
                 setShowSpinner(false)
                 console.log(res)
                 return ""
@@ -99,7 +99,7 @@ const Contact = () => {
                         id="name"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
-                        className="w-[90%] px-2 self-center rounded-md h-[40px] border-[1px] border-gray-700"
+                        className="w-[90%] px-2 self-center rounded-md h-[40px] border-[1px] border-gray-300"
                     />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -108,7 +108,7 @@ const Contact = () => {
                         id="email"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        className="w-[90%] px-2 self-center rounded-md h-[40px] border-[1px] border-gray-700"
+                        className="w-[90%] px-2 self-center rounded-md h-[40px] border-[1px] border-gray-300"
                         placeholder="example@gmail.com"
                     />
                 </div>
@@ -118,7 +118,7 @@ const Contact = () => {
                         id="phone"
                         onChange={(e) => setPhone(e.target.value)}
                         value={phone}
-                        className="w-[90%] px-2 self-center rounded-md h-[40px] border-[1px] border-gray-700"
+                        className="w-[90%] px-2 self-center rounded-md h-[40px] border-[1px] border-gray-300"
                     />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -127,7 +127,7 @@ const Contact = () => {
                         id="message"
                         onChange={(e) => setMessage(e.target.value)}
                         value={message}
-                        className="w-[90%] px-2 self-center rounded-md h-[90px] border-[1px] border-gray-700"
+                        className="w-[90%] px-2 self-center rounded-md h-[90px] border-[1px] border-gray-300"
                         placeholder="Type your message here..."
                     />
                 </div>

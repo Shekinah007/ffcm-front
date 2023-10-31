@@ -34,22 +34,22 @@ const Register = () => {
         console.log(userData)
 
         if (!firstName || !lastName || !email || !password) {
-            toast("All required fields must be filled in!")
+            toast.info("All required fields must be filled in!")
             return
         }
 
         if (email.match(emailReg) == null) {
-            toast('Your email address is not valid. E.g "justice@example.com"')
+            toast.info('Your email address is not valid. E.g "justice@example.com"')
             return;
         }
 
         if (password.length < 6) {
-            toast("Password must have at least 6 characters")
+            toast.info("Password must have at least 6 characters")
             return
         }
 
         if (password !== confirmPassword) {
-            toast("Passwords do mot match!")
+            toast.info("Passwords do mot match!")
             return;
         }
 
@@ -66,7 +66,7 @@ const Register = () => {
             body: JSON.stringify(userData),
         }).then(res => {
             if (res.ok) {
-                toast("Registration successful")
+                toast.success("Registration successful")
                 return res.json()
             } else {
                 console.log("Error, unable to complete fetch request");
@@ -75,7 +75,7 @@ const Register = () => {
         }).then(data => {
             console.log("DATA", data)
             if (!data) {
-                toast("Registration failed")
+                toast.error("Registration failed")
             }
             setTimeout(() => {
                 navigate("/signin")

@@ -25,20 +25,17 @@ const SignIn = () => {
 
 
         if (username.match(emailReg) == null) {
-            toast('Enter a valid email address. E.g "justice@example.com"')
+            toast.info('Enter a valid email address. E.g "justice@example.com"')
             setValidationError(true)
             return;
         }
 
         if (username == "" || password == "") {
             console.log("Hello")
-            toast("None of the fields should be empty")
+            toast.info("None of the fields should be empty")
             setValidationError(true)
             return;
         }
-
-
-
 
         if (username.match(emailReg)) {
             const loginData = { username, password }
@@ -55,10 +52,10 @@ const SignIn = () => {
                 }
                 if (res.ok) {
                     console.log("Login successful!!")
-                    toast("Login Successfull")
+                    toast.success("Login Successfull")
                     return res.json()
                 } else {
-                    toast("Login failed. Invalid email or password")
+                    toast.error("Login failed. Invalid email or password")
                     // console.log(res)
                     return ""
                 }
