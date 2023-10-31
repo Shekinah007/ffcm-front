@@ -44,7 +44,8 @@ const SignIn = () => {
             const loginData = { username, password }
 
             // fetch("http://localhost:3000/auth/login/", {
-            fetch("https://ffcm.zeabur.app/auth/login/", {
+            // fetch("https://ffcm.zeabur.app/auth/login/", {
+            fetch("https://eager-dog-onesies.cyclic.app/auth/login/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData)

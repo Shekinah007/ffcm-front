@@ -19,7 +19,7 @@ const Contact = () => {
             message: message
         }
 
-        fetch("https://ffcm.zeabur.app/question", {
+        fetch("https://eager-dog-onesies.cyclic.app/question", {
             // fetch("http://localhost:3000/question", {
             method: "POST",
             headers: {
@@ -46,9 +46,9 @@ const Contact = () => {
 
     return (
         <div className={`
-        contact-page py-10 min-h-[500px] flex flex-col gap-4 justify-center 
-        items-center border border-y-yellow-400 w-full bg-gray-100  duration-500 transition-all
-        ${visibility && "overflow-hidden h-0 min-h-0 py-[0]"}
+        contact-page py-[25px] min-h-[500px] flex flex-col gap-4 justify-center 
+        items-center border border-y-yellow-400 w-full bg-gray-100 duration-500 transition-all
+        ${visibility && "overflow-hidden h-[0px] min-h-[0px] py-[0px]"}
         `}>
             <h2 className="text-5xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>

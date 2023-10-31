@@ -57,7 +57,8 @@ const Register = () => {
 
 
         // fetch("http://localhost:3000/auth/register", {
-        fetch("https://ffcm.zeabur.app/auth/register", {
+        // fetch("https://ffcm.zeabur.app/auth/register", {
+        fetch("https://eager-dog-onesies.cyclic.app/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
