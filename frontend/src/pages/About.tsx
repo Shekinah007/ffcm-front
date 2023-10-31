@@ -4,7 +4,7 @@ const About = () => {
 
 
     return (
-        <div className="min-h-screen pt-20 py-16 md:py-20 md:pt-36 px-5 md:px-36 text-lg text-gray-500 border-b-2 border-yellow-400">
+        <div className="min-h-screen pt-20 py-16 md:py-20 md:pt-36 px-5 md:px-36 text-md text-gray-500 border-b-2 border-yellow-400">
             <div id="about" className="about flex gap-8 flex-col md:flex-row flex-wrap ">
                 <div className="flex flex-col gap-3">
                     <h2 className="text-2xl font-semibold text-gray-600 text-center">Welcome to Flaming Faith Covenant Minsitries</h2>

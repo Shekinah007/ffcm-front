@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const SignIn = () => {
 
+    window.scrollTo(0, 0)
+
     let navigate = useNavigate()
 
     const [username, setUsername] = useState<string>("");
