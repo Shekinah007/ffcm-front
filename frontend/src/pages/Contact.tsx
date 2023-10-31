@@ -11,6 +11,32 @@ const Contact = () => {
 
     const handleContactForm = (e: any) => {
         e.preventDefault()
+        const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        // setVisibility(true)
+
+
+
+
+        if (!name || !email || !phone || !message) {
+            toast("Please fill in all the available fields.")
+            return;
+        }
+
+        if (email.match(emailReg) == null) {
+            toast("Your email address in not valid. E.g 'justice@gmail.com'");
+            return
+        }
+
+
+
+        if (phone.length < 10) {
+            toast("Please enter a valid phone number")
+            return;
+        }
+
+        if (isNaN(+phone)) {
+            toast("Please enter a valid phone number")
+        }
 
         const contactData = {
             name: name,
@@ -46,15 +72,15 @@ const Contact = () => {
 
     return (
         <div className={`
-        contact-page py-[25px] min-h-[500px] flex flex-col gap-4 justify-center 
+        contact-page py-[25px] flex flex-col gap-4 justify-center 
         items-center border border-y-yellow-400 w-full bg-gray-100 duration-500 transition-all
-        ${visibility && "overflow-hidden h-[0px] min-h-[0px] py-[0px]"}
-        `}>
-            <h2 className="text-5xl font-bold">Questions?</h2>
+        ${visibility && "overflow-hidden py-[0px] h-0 scale-y-0"}
+                `}>
+            <h2 className="text-3xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>
             <form
                 onSubmit={handleContactForm}
-                className="bg-gray-100 min-h-[200px] w flex flex-col gap-7 justify-center p-3 rounded-md w-[90%] md:w-[400px] py-5 card">
+                className="bg-gray-100 min-h-[200px] w flex flex-col gap-3 justify-center p-3 rounded-md w-[90%] md:w-[400px] py-5 card">
 
                 <div className="flex flex-col gap-1">
                     <label htmlFor="name" className="pl-5 font-semibold text-md">Name <span className="text-red-600 font-bold">*</span></label>
