@@ -33,6 +33,7 @@ const Contact = () => {
 
         if (isNaN(+phone)) {
             toast("Please enter a valid phone number")
+            return;
         }
 
         const contactData = {
