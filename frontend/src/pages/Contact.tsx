@@ -53,11 +53,12 @@ const Contact = () => {
             body: JSON.stringify(contactData)
         }).then(res => {
             if (res.ok) {
-                toast("Message sent successfully!!")
+                toast("Message sent!")
                 setVisibility(true)
                 return res.json()
             } else {
                 toast("Sorry, an error occurred.")
+                setShowSpinner(false)
                 console.log(res)
                 return ""
             }
@@ -66,6 +67,7 @@ const Contact = () => {
             if (data) {
                 console.log("Contact Data: ", data)
                 setShowSpinner(false)
+
             }
         })
     }
