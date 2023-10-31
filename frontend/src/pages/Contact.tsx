@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { RotatingLines } from "react-loader-spinner"
 import { toast } from "react-toastify"
 
 const Contact = () => {
@@ -8,14 +9,12 @@ const Contact = () => {
     const [phone, setPhone] = useState<string>("")
     const [message, setMessage] = useState<string>("")
     const [visibility, setVisibility] = useState(false)
+    const [showSpinner, setShowSpinner] = useState(false)
+
 
     const handleContactForm = (e: any) => {
         e.preventDefault()
         const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-        // setVisibility(true)
-
-
-
 
         if (!name || !email || !phone || !message) {
             toast("Please fill in all the available fields.")
@@ -26,8 +25,6 @@ const Contact = () => {
             toast("Your email address in not valid. E.g 'justice@gmail.com'");
             return
         }
-
-
 
         if (phone.length < 10) {
             toast("Please enter a valid phone number")
@@ -44,9 +41,10 @@ const Contact = () => {
             mobile: phone,
             message: message
         }
-
+        setShowSpinner(true)
         fetch("https://eager-dog-onesies.cyclic.app/question", {
             // fetch("http://localhost:3000/question", {
+
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -66,6 +64,7 @@ const Contact = () => {
             console.log(data)
             if (data) {
                 console.log("Contact Data: ", data)
+                setShowSpinner(false)
             }
         })
     }
@@ -76,6 +75,15 @@ const Contact = () => {
         items-center border border-y-yellow-400 w-full bg-gray-100 duration-500 transition-all
         ${visibility && "overflow-hidden py-[0px] h-0 scale-y-0"}
                 `}>
+            <div className={`w-full absolute bg-black/75 h-5/6 md:h-full z-20 text-black  ${showSpinner ? "scale-y-1 flex justify-center items-center" : "scale-y-0"}`}>
+                <RotatingLines
+                    strokeColor="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={true}
+                />
+            </div>
             <h2 className="text-3xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>
             <form
