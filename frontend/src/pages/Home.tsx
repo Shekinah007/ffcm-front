@@ -131,7 +131,7 @@ const Home = () => {
                 <About />
 
                 <div className={`worship-time flex flex-col-reverse md:flex-row justify-center items-center md:justify-between w-screen`}>
-                    <div className={`animate translate-y-24 opacity-0 ${isIntersecting && "translate-y-0 opacity-100"} px-10  py-20 md:py-5 flex flex-col gap-5  w-full md:w-1/2`}>
+                    <div className={`animate  px-10  py-20 md:py-5 flex flex-col gap-5  w-full md:w-1/2 translate-y-24 opacity-0 ${isIntersecting && "translate-y-0 opacity-100"}`}>
                         <h2 className="text-2xl font-semibold font-serif">Worship Hours</h2>
                         <div className="flex flex-col gap-2 ">
                             <h3 className="text-yellow-400 font-semibold text-lg">Sundays</h3>
