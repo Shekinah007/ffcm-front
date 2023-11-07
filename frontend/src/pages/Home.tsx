@@ -2,10 +2,45 @@ import logo1 from "../assets/images/ffcmLogo.png"
 import { TypeAnimation } from 'react-type-animation';
 import worshipImg from "../assets/images/pexels-luis-quintero-2014775.jpg"
 import About from "./About"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Contact from "./Contact";
 
 const Home = () => {
+
+    const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
+    const ref = useRef()
+
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(([entry]) => {
+    //         setIsIntersecting(entry.isIntersecting)
+    //     }, { rootMargin: "-300px" })
+    //     console.log("Intersection", isIntersecting)
+
+    // }, [])
+
+    useEffect(() => {
+        let classes = document.querySelectorAll(".animate")
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log("INTERSECTING")
+                    setIsIntersecting(true)
+                }
+                else {
+                    console.log("Not Intersecting")
+                    setIsIntersecting(false)
+                }
+            })
+        }, { rootMargin: "" })
+
+        for (let i = 0; i < classes.length; i++) {
+            const elements = classes[i];
+
+            observer.observe(elements);
+        }
+
+    }, [])
 
 
 
@@ -37,6 +72,7 @@ const Home = () => {
 
 
 
+
     useEffect(() => {
         let i = 0;
         setInterval(() => {
@@ -51,13 +87,13 @@ const Home = () => {
 
 
     return (
-        <div id="" className="home-page">
+        <div id="" className="home-page duration-1000 delay-1000">
             {/* {() => textAnimations()} */}
             <div className="overlay h-screen w-screen absolute top-0 bg-black opacity-40"></div>
             <div className="bg-white">
                 <div id="home" className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl bg-black text-gray-300 justify-center items-center">
                     <img alt="logo" className="h-36 z-10 duration-200 custom-rotate " src={logo1} />
-                    <div className="flex flex-col z-10 items-center text-center mx-3 h-3">
+                    <div className={`flex flex-col z-10 items-center text-center mx-3 h-3`}>
                         {/* <p className="italic text-gray-300 text-lg verse" key={currentVerse.text}>- {currentVerse.text} -</p> */}
 
                         <TypeAnimation
@@ -94,8 +130,8 @@ const Home = () => {
                 </div> */}
                 <About />
 
-                <div className="worship-time flex flex-col-reverse md:flex-row justify-center items-center md:justify-between w-screen ">
-                    <div className="px-10 py-20 md:py-5 flex flex-col gap-5  w-full md:w-1/2">
+                <div className={`worship-time flex flex-col-reverse md:flex-row justify-center items-center md:justify-between w-screen`}>
+                    <div className={`animate delay-200 translate-y-[200px] opacity-0 ${isIntersecting && "translate-y-[0px] opacity-100"} px-10  py-20 md:py-5 flex flex-col gap-5  w-full md:w-1/2`}>
                         <h2 className="text-2xl font-semibold font-serif">Worship Hours</h2>
                         <div className="flex flex-col gap-2 ">
                             <h3 className="text-yellow-400 font-semibold text-lg">Sundays</h3>

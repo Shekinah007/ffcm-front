@@ -8,10 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   return (
-    <div className="bg-black">
+    <div onScroll={() => { alert("Scrolling") }} className="bg-black">
       <ToastContainer autoClose={1500} transition={Flip} />
       <Navbar />
-      <div className="">
+      <div onScroll={() => { alert("Scrolling") }} className="">
         <Outlet />
       </div>
       <Footer />
