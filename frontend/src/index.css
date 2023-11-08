@@ -71,3 +71,28 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  /* border: 1px solid black; */
+  text-align: left;
+  padding: 8px;
+  padding-inline: 10px;
+}
+
+td:nth-child(2) {
+  font-weight: 100;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
