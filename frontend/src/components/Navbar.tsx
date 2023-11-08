@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 import shieldLogo from "../assets/images/shieldLogo.png"
 import churchLogo from "../assets/images/ffcmLogo.png"
@@ -11,6 +11,27 @@ import { Link } from "react-router-dom"
 
 
 const Navbar = (): ReactElement => {
+
+    const [prevScrollPos, setPrevScrollPos] = useState<number>(0)
+    const [visible, setVisible] = useState(true)
+
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY
+
+        if (currentScrollPos > prevScrollPos) {
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
+
+        setPrevScrollPos(currentScrollPos)
+
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    })
 
     const [open, setOpen] = useState<boolean>(false);
     const [currentPage, setCurrentPage] = useState<String>("Home")
@@ -27,10 +48,10 @@ const Navbar = (): ReactElement => {
     }
 
     return (
-        <div className={`justify-center flex fixed w-screen flex-col 
+        <div className={`duration-300 justify-center flex fixed w-screen flex-col 
          md:flex-row  md:justify-between min-h-[40px] items-center z-20 px-3 md:p-
          duration-400 md:px-5 ${open ? "bg-gray-800/90 text-white" : "bg-black"}
-         text-white border-b-2 border-yellow-500 `}
+         text-white border-b-2 border-yellow-500 ${!visible && !open && "-translate-y-20"}`}
         >
             {/* <div className={`overlay fixed h-screen w-screen top-0 duration-300 ${!open && "h-[0px]"} bg-black/50 -z-50`}></div> */}
 
