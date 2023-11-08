@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import { toast } from "react-toastify"
 import { BiSolidUserCircle } from "react-icons/Bi"
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const AdminDashboard = () => {
 
@@ -51,12 +52,8 @@ const AdminDashboard = () => {
                 <div className="flex flex-col gap-2 mt-5 px-5 md:px-32 text-gray-900 font-semibold ">
                     <h2 className="text-3xl font-semibold">Profile Info</h2>
                     <hr className="bg-black" />
-                    <BiSolidUserCircle size="6em" color="gray" className="self-center" />
-                    {/* <p>First Name: {userData && userData.firstName}</p>
-                    <p>Last Name: {userData && userData.lastName}</p>
-                    <p>Phone: {userData.phone}</p>
-                    <p>Email: {userData.username}</p>
-                    <p>Role: {"Member"}</p> */}
+                    {/* <BiSolidUserCircle size="6em" color="gray" className="self-center" /> */}
+                    <AccountCircleIcon sx={{ fontSize: 100 }} className="self-center text-gray-500" />
                     <table className="card text-gray-700 md:w-[500px] self-center" >
                         <tr>
                             <td>First Name</td>
