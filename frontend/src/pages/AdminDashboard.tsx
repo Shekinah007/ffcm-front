@@ -8,7 +8,7 @@ const AdminDashboard = () => {
     const [username, setUsername] = useState<string>("")
     const [firstName, setFirstName] = useState<string>("")
     const [lastName, setLastName] = useState<string>("")
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState<any>()
     const accessToken = localStorage.getItem('accessToken')
 
 
@@ -37,8 +37,6 @@ const AdminDashboard = () => {
                 setUsername(data.username)
                 setFirstName(data.firstName)
                 setLastName(data.lastName)
-
-
             }
         })
     }, [])
@@ -48,7 +46,7 @@ const AdminDashboard = () => {
         <div className="admin-dashboard flex flex-col ">
             <Navbar />
             <div className="pt-24 flex flex-col p-2 ">
-                <p className="text-md font-bold absolute top-16 md:top-0 md:relative">Welcome, {firstName && firstName}</p>
+                <p className="text-md font-bold absolute top-16 ml-10 md:top-0 md:relative">Welcome, {firstName && firstName}</p>
 
                 <div className="flex flex-col gap-2 mt-5 px-5 md:px-32 text-gray-900 font-semibold ">
                     <h2 className="text-3xl font-semibold">Profile Info</h2>
