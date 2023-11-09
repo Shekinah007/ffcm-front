@@ -94,5 +94,5 @@ td:nth-child(2) {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: rgb(212, 229, 236)
 }

@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { RotatingLines } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import LoadingOverlay from "../components/LoadingOverlay";
 
 
 
@@ -14,6 +16,7 @@ const SignIn = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [validationError, setValidationError] = useState<Boolean>(false)
+    const [visibility, setVisibility] = useState(false);
 
 
 
@@ -42,37 +45,51 @@ const SignIn = () => {
         if (username.match(emailReg)) {
             const loginData = { username, password }
 
+            setVisibility(true)
+
             // fetch("http://localhost:3000/auth/login/", {
             // fetch("https://ffcm.zeabur.app/auth/login/", {
-            fetch("https://eager-dog-onesies.cyclic.app/auth/login/", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(loginData)
-            }).then(res => {
-                if (!res) {
-                    toast("Go and buy data")
-                }
-                if (res.ok) {
-                    console.log("Login successful!!")
-                    toast.success("Login Successfull")
-                    return res.json()
-                } else {
-                    toast.error("Login failed. Invalid email or password")
-                    // console.log(res)
-                    return ""
-                }
-            }).then(data => {
-                if (!data) {
-                    return ""
-                }
-                // console.log("Login Success!", data)
-                // console.log(data.accessToken)
-                localStorage.setItem("username", data.username)
-                localStorage.setItem("accessToken", data.accessToken)
-                setTimeout(() => {
-                    navigate("/adminDashboard");
-                }, 1500)
-            })
+            try {
+
+                fetch("https://eager-dog-onesies.cyclic.app/auth/login/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(loginData)
+                }).then(res => {
+                    if (!res) {
+                        toast("Go and buy data")
+                        console.log("NETWORK!!!")
+                    }
+                    if (res.ok) {
+                        console.log("Login successful!!")
+                        toast.success("Login Successfull")
+                        return res.json()
+                    } else {
+                        toast.error("Login failed. Invalid email or password")
+                        setVisibility(false)
+                        // console.log(res)
+                        console.log("NETWORK 2!!!")
+
+                        return ""
+                    }
+                }).then(data => {
+                    if (!data) {
+                        return ""
+                    }
+                    // console.log("Login Success!", data)
+                    // console.log(data.accessToken)
+                    localStorage.setItem("username", data.username)
+                    localStorage.setItem("accessToken", data.accessToken)
+                    setVisibility(false)
+                    setTimeout(() => {
+                        navigate("/adminDashboard");
+                    }, 1500)
+                    setVisibility(false)
+                })
+            } catch (error) {
+                setVisibility(false)
+                console.log("Error: ", error)
+            }
         }
 
         console.log("Submitted!!")
@@ -80,9 +97,8 @@ const SignIn = () => {
 
     return (
         <div className='sign-page pt-14 min-h-screen flex flex-col justify-center items-center bg-bg3 bg-cover bg-no-repeat'>
-            <div>
+            <LoadingOverlay visibility={visibility} />
 
-            </div>
             <div className={`rounded-lg bg-yellow-400/90 transition-all duration-1000 ${validationError && "bg-gray-700/80 border-8 border-gray-800 "}  text-white h-[400px] w-[300px] flex flex-col items-center justify-center gap-3`}>
                 <div className="">
                     <h2 className="font-semibold text-xl text-center">Admin Login</h2>

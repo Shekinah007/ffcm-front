@@ -47,13 +47,13 @@ const AdminDashboard = () => {
         <div className="admin-dashboard flex flex-col ">
             <Navbar />
             <div className="pt-24 flex flex-col p-2 ">
-                <p className="text-md font-bold absolute top-16 ml-10 md:top-0 md:relative">Welcome, {firstName && firstName}</p>
+                <p className="text-md font-bold absolute top-20 ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
 
-                <div className="flex flex-col gap-2 mt-5 px-5 md:px-32 text-gray-900 font-semibold ">
+                <div className="flex flex-col gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
                     <h2 className="text-3xl font-semibold">Profile Info</h2>
                     <hr className="bg-black" />
                     {/* <BiSolidUserCircle size="6em" color="gray" className="self-center" /> */}
-                    <AccountCircleIcon sx={{ fontSize: 100 }} className="self-center text-gray-500" />
+                    <AccountCircleIcon sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
                     <table className="card text-gray-700 md:w-[500px] self-center" >
                         <tr>
                             <td>First Name</td>
