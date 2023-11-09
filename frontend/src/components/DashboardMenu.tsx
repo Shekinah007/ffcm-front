@@ -2,7 +2,7 @@ import { useState } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { AccountCircle, DashboardCustomize, FileOpen, NoteAdd, Settings } from '@mui/icons-material';
 
-const DashboardMenu = () => {
+const DashboardMenu = ({ handlePage }: any) => {
 
     const [menuOpen, setMenuOpen] = useState(true);
 
@@ -24,28 +24,28 @@ const DashboardMenu = () => {
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
                     <div className="flex gap-1 items-center">
                         <AccountCircle sx={{ fontSize: 30 }} />
-                        <button>Profile</button>
+                        <button onClick={() => handlePage("Profile")}>Profile</button>
                     </div>
                     <hr className="w-[100px]" />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
                     <div className="flex gap-1 items-center">
                         <NoteAdd />
-                        <button>Records</button>
+                        <button onClick={() => handlePage("Tithes")}>Records</button>
                     </div>
                     <hr className="w-[100px] " />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
                     <div className="flex gap-1 items-center">
                         <FileOpen />
-                        <button>Entries</button>
+                        <button onClick={() => handlePage("Entries")}>Entries</button>
                     </div>
                     <hr className="w-[100px] " />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
                     <div className="flex gap-1 items-center">
                         <Settings />
-                        <button>Settings</button>
+                        <button onClick={() => handlePage("Settings")}>Settings</button>
                     </div>
                     <hr className="w-[100px] " />
                 </div>

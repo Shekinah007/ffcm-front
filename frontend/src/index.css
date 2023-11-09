@@ -90,9 +90,49 @@ th {
 }
 
 td:nth-child(2) {
-  font-weight: 100;
+  /* font-weight: 100; */
 }
 
 tr:nth-child(even) {
   background-color: rgb(212, 229, 236)
+}
+
+.record td,
+th {
+  border: 1px solid #dddddd;
+  /* border: 1px solid black; */
+  text-align: center;
+  padding: 8px;
+  padding-inline: 10px;
+}
+
+.record td:first-child {
+  text-align: left;
+}
+
+.record td:nth-child(2) {
+  /* font-weight: 100; */
+}
+
+.record tr:nth-child(even) {
+  background-color: rgb(255, 255, 255)
+}
+
+.animate-rec {
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  /* animation-delay: 0.1s; */
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(100px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
 }

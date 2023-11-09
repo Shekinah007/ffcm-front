@@ -2,18 +2,21 @@ import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import { toast } from "react-toastify"
 // import { BiSolidUserCircle } from "react-icons/Bi"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DashboardMenu from "../components/DashboardMenu";
-import { Settings } from "@mui/icons-material";
 import Tithes from "./Tithes";
+import Profile from "./Profile";
 
 const AdminDashboard = () => {
+
+    const [currentPage, setCurrentPage] = useState("Profile")
 
     const [username, setUsername] = useState<string>("")
     const [firstName, setFirstName] = useState<string>("")
     const [lastName, setLastName] = useState<string>("")
     const [userData, setUserData] = useState<any>()
+
     const accessToken = localStorage.getItem('accessToken')
+
 
 
     useEffect(() => {
@@ -45,50 +48,22 @@ const AdminDashboard = () => {
         })
     }, [])
 
+    // console.log("CurrentPage: ", currentPage)
+
 
     return (
-        <div className="admin-dashboard flex flex-col ">
+        <div className="admin-dashboard flex flex-col bg-no-repeat bg-cover min-h-screen">
             <Navbar />
-            <DashboardMenu />
-            <p className="text-md font-bold absolute top-20 ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
-            <div className="pt-24 flex flex-col p-2 ">
-
-                <div className="flex flex-col gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
-                    <AccountCircleIcon sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
-                    <h2 className="text-2xl font-semibold">Profile Info</h2>
-                    <hr className="bg-black mb-4" />
-                    <table className="card text-gray-700 md:w-[500px] self-center" >
-                        <tr>
-                            <td>First Name</td>
-                            <td>{userData && userData.firstName}</td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td>{userData && userData.lastName}</td>
-                        </tr>
-                        <tr>
-                            <td>Phone Number</td>
-                            <td>{userData && userData.phone}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>{userData && userData.username}</td>
-                        </tr>
-                        <tr>
-                            <td>Role</td>
-                            <td>{userData && "Admin"}</td>
-                        </tr>
-
-                    </table>
-                    <hr className="bg-black mt-4" />
-                </div>
-                <button className="card mt-4 text-xl bg-gray-300 flex items-center gap-1 self-center py-2 font-bold text-gray-700 px-4 rounded-md">
-                    <Settings />
-                    <p>Edit</p>
-                </button>
-            </div>
-
-            <Tithes />
+            <DashboardMenu handlePage={setCurrentPage} />
+            <p className="text-md font-bold absolute top-[70px] ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
+            {/* <Profile userData={userData} /> */}
+            {
+                currentPage === "Profile" ? <Profile userData={userData} /> :
+                    currentPage === "Tithes" ? <Tithes /> :
+                        currentPage === "Entries" ? <h2 className="mt-[200px]">Entries</h2> :
+                            currentPage === "Settings" ? <h2 className="mt-[200px]">Settings</h2> : "Hello"
+            }
+            {/* <Tithes /> */}
         </div>
     )
 }

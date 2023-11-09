@@ -46,6 +46,10 @@
     animation: entrance 0.7s;
 }
 
+.admin-dashboard {
+    background-image: url("/assets/images/pexels-miguel-á-padriñán-19670.jpg")
+}
+
 .verse {
     /* animation: entrance 1s; */
     animation: verseAnims 4s;
