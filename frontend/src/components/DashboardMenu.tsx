@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import { AccountCircle, DashboardCustomize, FileOpen, NoteAdd, Notes, NotesRounded, NotesSharp, PersonOffOutlined, Settings, VerifiedUserSharp } from '@mui/icons-material';
+import { Avatar } from '@mui/material';
 
 const DashboardMenu = () => {
 
@@ -21,19 +23,31 @@ const DashboardMenu = () => {
             </button>
             <div className="flex flex-col gap-9 items-start duration-150">
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <button>Profile</button>
+                    <div className="flex gap-1 items-center">
+                        <AccountCircle sx={{ fontSize: 30 }} />
+                        <button>Profile</button>
+                    </div>
                     <hr className="w-[100px]" />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <button>Records</button>
+                    <div className="flex gap-1 items-center">
+                        <NoteAdd />
+                        <button>Records</button>
+                    </div>
                     <hr className="w-[100px] " />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <button>Entries</button>
+                    <div className="flex gap-1 items-center">
+                        <FileOpen />
+                        <button>Entries</button>
+                    </div>
                     <hr className="w-[100px] " />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <button>Settings</button>
+                    <div className="flex gap-1 items-center">
+                        <Settings />
+                        <button>Settings</button>
+                    </div>
                     <hr className="w-[100px] " />
                 </div>
 
