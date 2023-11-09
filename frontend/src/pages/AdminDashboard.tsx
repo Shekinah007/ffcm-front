@@ -4,6 +4,7 @@ import { toast } from "react-toastify"
 // import { BiSolidUserCircle } from "react-icons/Bi"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DashboardMenu from "../components/DashboardMenu";
+import { Settings } from "@mui/icons-material";
 
 const AdminDashboard = () => {
 
@@ -81,7 +82,10 @@ const AdminDashboard = () => {
                     </table>
                     <hr className="bg-black mt-4" />
                 </div>
-                <button className="card mt-4 bg-gray-300 self-center py-2 font-bold text-gray-700 px-4 rounded-md">Edit</button>
+                <button className="card mt-4 text-xl bg-gray-300 flex items-center gap-1 self-center py-2 font-bold text-gray-700 px-4 rounded-md">
+                    <Settings />
+                    <p>Edit</p>
+                </button>
             </div>
         </div>
     )
