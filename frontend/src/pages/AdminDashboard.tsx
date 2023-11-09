@@ -5,6 +5,7 @@ import { toast } from "react-toastify"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DashboardMenu from "../components/DashboardMenu";
 import { Settings } from "@mui/icons-material";
+import Tithes from "./Tithes";
 
 const AdminDashboard = () => {
 
@@ -49,14 +50,13 @@ const AdminDashboard = () => {
         <div className="admin-dashboard flex flex-col ">
             <Navbar />
             <DashboardMenu />
+            <p className="text-md font-bold absolute top-20 ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
             <div className="pt-24 flex flex-col p-2 ">
-                <p className="text-md font-bold absolute top-20 ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
 
                 <div className="flex flex-col gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
-                    <h2 className="text-3xl font-semibold">Profile Info</h2>
-                    <hr className="bg-black" />
-                    {/* <BiSolidUserCircle size="6em" color="gray" className="self-center" /> */}
                     <AccountCircleIcon sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
+                    <h2 className="text-2xl font-semibold">Profile Info</h2>
+                    <hr className="bg-black mb-4" />
                     <table className="card text-gray-700 md:w-[500px] self-center" >
                         <tr>
                             <td>First Name</td>
@@ -87,6 +87,8 @@ const AdminDashboard = () => {
                     <p>Edit</p>
                 </button>
             </div>
+
+            <Tithes />
         </div>
     )
 }

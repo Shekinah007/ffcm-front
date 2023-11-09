@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import { AccountCircle, DashboardCustomize, FileOpen, NoteAdd, Notes, NotesRounded, NotesSharp, PersonOffOutlined, Settings, VerifiedUserSharp } from '@mui/icons-material';
-import { Avatar } from '@mui/material';
+import { AccountCircle, DashboardCustomize, FileOpen, NoteAdd, Settings } from '@mui/icons-material';
 
 const DashboardMenu = () => {
 
