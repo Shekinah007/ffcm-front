@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { RotatingLines } from "react-loader-spinner"
 import { toast } from "react-toastify"
+import LoadingOverlay from "../components/LoadingOverlay"
 
 const Contact = () => {
 
@@ -76,9 +77,8 @@ const Contact = () => {
         <div className={`
         contact-page py-[25px] flex flex-col gap-4 justify-center 
         items-center border border-y-yellow-400 w-full bg-gray-100 duration-500 transition-all
-        ${visibility && "overflow-hidden py-[0px] h-0 scale-y-0"}
                 `}>
-            <div className={`w-full absolute bg-black/75 h-5/6 md:h-full z-20 text-black  ${showSpinner ? "scale-y-1 flex justify-center items-center" : "scale-y-0"}`}>
+            {/* <div className={`w-full absolute bg-black/75 h-5/6 md:h-full z-20 text-black  ${showSpinner ? "scale-y-1 flex justify-center items-center" : "scale-y-0"}`}>
                 <RotatingLines
                     strokeColor="grey"
                     strokeWidth="5"
@@ -86,7 +86,8 @@ const Contact = () => {
                     width="96"
                     visible={true}
                 />
-            </div>
+            </div> */}
+            <LoadingOverlay visibility={showSpinner} />
             <h2 className="text-3xl font-bold">Questions?</h2>
             <p className="text-center">Contact us. We would love to hear from you. <br />👇</p>
             <form

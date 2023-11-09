@@ -80,7 +80,7 @@ const Navbar = (): ReactElement => {
 
             </div>
             <div>
-                <span className={`menu-btn md:hidden text-yellow-500 self-center translate-y-6 duration-500 text-3xl border-2 ${!open && " -scale-y-100"} h-12 w-12 bg-black flex items-center justify-center rounded-full`} onClick={(): void => { setOpen(prev => !prev) }}>
+                <span className={`menu-btn md:hidden text-yellow-500 self-center translate-y-6 duration-500 text-3xl border-2 ${!open && "-scale-y-100"} h-12 w-12 bg-black flex items-center justify-center rounded-full`} onClick={(): void => { setOpen(prev => !prev) }}>
                     <ExpandLessIcon />
                 </span>
             </div>

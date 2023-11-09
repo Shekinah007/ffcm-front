@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar"
 import { toast } from "react-toastify"
 // import { BiSolidUserCircle } from "react-icons/Bi"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DashboardMenu from "../components/DashboardMenu";
 
 const AdminDashboard = () => {
 
@@ -46,6 +47,7 @@ const AdminDashboard = () => {
     return (
         <div className="admin-dashboard flex flex-col ">
             <Navbar />
+            <DashboardMenu />
             <div className="pt-24 flex flex-col p-2 ">
                 <p className="text-md font-bold absolute top-20 ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
 
