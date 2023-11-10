@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { AccountCircle, DashboardCustomize, FileOpen, NoteAdd, Settings } from '@mui/icons-material';
+import { Avatar } from '@mui/material';
 
 const DashboardMenu = ({ handlePage }: any) => {
 
@@ -26,7 +27,7 @@ const DashboardMenu = ({ handlePage }: any) => {
                         <AccountCircle sx={{ fontSize: 30 }} />
                         <button onClick={() => handlePage("Profile")}>Profile</button>
                     </div>
-                    <hr className="w-[100px]" />
+                    <hr className="w-[90px]" />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
                     <div className="flex gap-1 items-center">
@@ -40,14 +41,21 @@ const DashboardMenu = ({ handlePage }: any) => {
                         <FileOpen />
                         <button onClick={() => handlePage("Entries")}>Entries</button>
                     </div>
-                    <hr className="w-[100px] " />
+                    <hr className="w-[110px] " />
                 </div>
                 <div className="hover:text-yellow-400 duration-150 hover:scale-110">
                     <div className="flex gap-1 items-center">
                         <Settings />
                         <button onClick={() => handlePage("Settings")}>Settings</button>
                     </div>
-                    <hr className="w-[100px] " />
+                    <hr className="w-[120px] " />
+                </div>
+                <div className="hover:text-yellow-400 duration-150 hover:scale-110">
+                    <div className="flex gap-1 items-center">
+                        <AccountCircle sx={{ fontSize: 30 }} />
+                        <button onClick={() => handlePage("Members")}>Members</button>
+                    </div>
+                    <hr className="w-[130px] " />
                 </div>
 
             </div>

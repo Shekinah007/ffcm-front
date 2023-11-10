@@ -94,7 +94,6 @@ const Home = () => {
                 <div id="home" className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl bg-black text-gray-300 justify-center items-center">
                     <img alt="logo" className="h-36 z-10 duration-200 custom-rotate " src={logo1} />
                     <div className={`flex flex-col z-10 items-center text-center mx-3 h-3`}>
-                        {/* <p className="italic text-gray-300 text-lg verse" key={currentVerse.text}>- {currentVerse.text} -</p> */}
 
                         <TypeAnimation
                             sequence={[
@@ -113,21 +112,11 @@ const Home = () => {
                             repeat={Infinity}
                             cursor={true}
                         />
-                        {/* <p className="italic text-blue-200 text-lg ref" key={currentVerse.ref}> {currentVerse.ref} </p> */}
 
                     </div>
 
 
                 </div>
-                {/* <div id="about className="about flex gap-3 flex-col md:flex-row flex-wrap ">
-                    <h2 className="text-lg text-gray-600 text-center">Welcome to Flaming Faith Covenant Minsitries</h2>
-                    <hr ></hr>
-                    <p>We are a church with the ultimate aim of showing people the love of God and changing their
-                        lives through the power of His Word. We are a church that preaches the word of God as it is,
-                        neither adding to it or taking away from it, for we believe that in the unchanged Word of God, lies
-                        its power to change and save anyone who believes.
-                    </p>
-                </div> */}
                 <About />
 
                 <div className={`worship-time flex flex-col-reverse md:flex-row justify-center items-center md:justify-between w-screen`}>

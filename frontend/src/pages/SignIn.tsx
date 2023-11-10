@@ -49,47 +49,44 @@ const SignIn = () => {
 
             // fetch("http://localhost:3000/auth/login/", {
             // fetch("https://ffcm.zeabur.app/auth/login/", {
-            try {
+            fetch("https://eager-dog-onesies.cyclic.app/auth/login/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(loginData)
+            }).then(res => {
+                if (!res) {
+                    toast("Go and buy data")
+                    console.log("NETWORK!!!")
+                }
+                if (res.ok) {
+                    console.log("Login successful!!")
+                    toast.success("Login Successfull")
+                    return res.json()
+                } else {
+                    toast.error("Login failed. Invalid email or password")
+                    // console.log(res)
+                    console.log("NETWORK 2!!!")
 
-                fetch("https://eager-dog-onesies.cyclic.app/auth/login/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(loginData)
-                }).then(res => {
-                    if (!res) {
-                        toast("Go and buy data")
-                        console.log("NETWORK!!!")
-                    }
-                    if (res.ok) {
-                        console.log("Login successful!!")
-                        toast.success("Login Successfull")
-                        return res.json()
-                    } else {
-                        toast.error("Login failed. Invalid email or password")
-                        setVisibility(false)
-                        // console.log(res)
-                        console.log("NETWORK 2!!!")
-
-                        return ""
-                    }
-                }).then(data => {
-                    if (!data) {
-                        return ""
-                    }
-                    // console.log("Login Success!", data)
-                    // console.log(data.accessToken)
-                    localStorage.setItem("username", data.username)
-                    localStorage.setItem("accessToken", data.accessToken)
-                    setVisibility(false)
-                    setTimeout(() => {
-                        navigate("/adminDashboard");
-                    }, 1500)
-                    setVisibility(false)
-                })
-            } catch (error) {
+                    return ""
+                }
+            }).then(data => {
+                if (!data) {
+                    return ""
+                }
+                // console.log("Login Success!", data)
+                // console.log(data.accessToken)
+                localStorage.setItem("username", data.username)
+                localStorage.setItem("accessToken", data.accessToken)
+                setVisibility(false)
+                setTimeout(() => {
+                    navigate("/adminDashboard");
+                }, 1500)
+                // setVisibility(false)
+            }).catch((error) => {
                 setVisibility(false)
                 console.log("Error: ", error)
-            }
+            }).finally(() => { setVisibility(false) })
+
         }
 
         console.log("Submitted!!")

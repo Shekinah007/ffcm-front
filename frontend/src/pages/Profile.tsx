@@ -1,9 +1,18 @@
 import { AccountCircle, Settings } from '@mui/icons-material'
 
-const Profile = ({ userData }: any) => {
+type ProfileProps = {
+    userData: {
+        firstName: string,
+        lastName: string,
+        phone: number,
+        username: string,
+    }
+}
+
+const Profile = ({ userData }: ProfileProps) => {
     return (
-        <div className="animate-rec  pt-16 flex flex-col p-2 ">
-            <div className="flex flex-col gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
+        <div className="animate-rec pt-16 flex flex-col  ">
+            <div className="py-4 flex flex-col bg-white w-screen m-0 card rounded-md md:rounded-xl gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
                 <AccountCircle sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
                 <h2 className="text-2xl font-semibold">Profile Info</h2>
                 <hr className="bg-black mb-4" />

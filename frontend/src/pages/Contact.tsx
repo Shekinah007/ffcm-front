@@ -70,6 +70,8 @@ const Contact = () => {
                 setShowSpinner(false)
 
             }
+        }).finally(() => {
+            setShowSpinner(false)
         })
     }
 

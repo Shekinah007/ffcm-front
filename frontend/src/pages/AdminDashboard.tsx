@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import { toast } from "react-toastify"
-// import { BiSolidUserCircle } from "react-icons/Bi"
 import DashboardMenu from "../components/DashboardMenu";
 import Tithes from "./Tithes";
 import Profile from "./Profile";
+import { TypeAnimation } from "react-type-animation";
+import EditProfile from "./Settings";
 
 const AdminDashboard = () => {
 
@@ -13,17 +14,23 @@ const AdminDashboard = () => {
     const [username, setUsername] = useState<string>("")
     const [firstName, setFirstName] = useState<string>("")
     const [lastName, setLastName] = useState<string>("")
-    const [userData, setUserData] = useState<any>()
+
+
+    const [userData, setUserData] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        phone: 0,
+    })
 
     const accessToken = localStorage.getItem('accessToken')
-
-
 
     useEffect(() => {
         console.log("Access token", accessToken)
 
         // fetch("http://localhost:3000/user/profile", {
-        fetch("https://ffcm.zeabur.app/user/profile", {
+        // fetch("https://ffcm.zeabur.app/user/profile", {
+        fetch("https://eager-dog-onesies.cyclic.app/user/profile", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -39,7 +46,8 @@ const AdminDashboard = () => {
             }
         }).then(data => {
             if (data) {
-                console.log("Data ", data)
+                toast("Welcome back, ", data.firstName)
+                console.log("Data: ", data)
                 setUserData(data)
                 setUsername(data.username)
                 setFirstName(data.firstName)
@@ -52,18 +60,46 @@ const AdminDashboard = () => {
 
 
     return (
-        <div className="admin-dashboard flex flex-col bg-no-repeat bg-cover min-h-screen">
+        <div className="admin-dashboard flex flex-col bg-white bg-no-repeat bg-cover min-h-screen">
             <Navbar />
-            <DashboardMenu handlePage={setCurrentPage} />
-            <p className="text-md font-bold absolute top-[70px] ml-5 md:top-0 md:relative text-gray-600">Welcome back, {firstName && firstName}</p>
-            {/* <Profile userData={userData} /> */}
-            {
-                currentPage === "Profile" ? <Profile userData={userData} /> :
-                    currentPage === "Tithes" ? <Tithes /> :
-                        currentPage === "Entries" ? <h2 className="mt-[200px]">Entries</h2> :
-                            currentPage === "Settings" ? <h2 className="mt-[200px]">Settings</h2> : "Hello"
-            }
-            {/* <Tithes /> */}
+            <div className="min-h-screen flex flex-col justify-center md:items-center">
+                <DashboardMenu handlePage={setCurrentPage} />
+                {
+                    firstName && (
+                        <p className="text-md font-bold absolute top-[70px] left-7
+                        md:top-[100px] text-gray-600">
+                            <TypeAnimation
+                                sequence={[
+                                    // Same substring at the start will only be typed out once, initially
+                                    // '- Welcome  ${firstName && firstName}',
+                                    // "Welcome back, " + firstName,
+                                    400, // wait 1s before replacing "Mice" with "Hamsters"
+
+                                ]}
+                                wrapper="span"
+                                speed={20}
+                                repeat={Infinity}
+                                style={{ fontSize: '1em', display: 'inline-block', fontStyle: "italic" }}
+                                cursor={false}
+                            />
+
+                            {/* Welcome back, {firstName && firstName} */}
+                        </p>
+                    )
+                }
+
+                {
+                    currentPage === "Profile" ? <Profile userData={userData} /> :
+                        currentPage === "Tithes" ? <div>
+                            <Tithes />
+                            <Tithes />
+                            <Tithes />
+                            <Tithes />
+                        </div> :
+                            currentPage === "Entries" ? <h2 className="mt-[200px]">Entries</h2> :
+                                currentPage === "Settings" ? <EditProfile /> : "Hello"
+                }
+            </div>
         </div>
     )
 }
