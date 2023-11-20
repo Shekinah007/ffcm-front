@@ -67,19 +67,18 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
     return (
         <div className="admin-dashboard flex flex-col bg-white bg-no-repeat bg-cover min-h-screen">
             <div className="min-h-screen flex flex-col md:flex-row md:items-center">
-                <p>Hello world</p>
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
                     <Route path="/tithes" element={<Tithes />} />
                     <Route path="/settings" element={<EditProfile />} />
                     <Route path="/members" element={<MemberManagement />} />
-                    <Route path="/memberProfile" element={<MemberProfile />} />
+                    <Route path="/memberProfile/:username" element={<MemberProfile />} />
                     <Route path="/logout" element={<Logout />} />
                 </Routes>
                 <DashboardMenu handlePage={setCurrentPage} />
                 {
                     firstName && (
-                        <p className="text-md font-bold absolute top-[70px] left-7
+                        <p className="text-md text-sm font-bold absolute top-[70px] right-2
                         md:top-[100px] text-gray-600">
                             <TypeAnimation
                                 sequence={[
