@@ -79,12 +79,12 @@ const Navbar = ({ isSignedIn }: any) => {
                 {/* <hr /> */}
 
                 {
-                    isSignedIn && <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> <span className="md:hidden">-</span> SignIn  </Link>
+                    !isSignedIn && <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> <span className="md:hidden">-</span> SignIn  </Link>
                 }
                 {/* <hr /> */}
 
                 {
-                    !isSignedIn &&
+                    isSignedIn &&
                     <Link to={"/adminDashboard"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Dashboard") }}>
                         <span className="md:hidden">-</span> Dashboard
                     </Link>

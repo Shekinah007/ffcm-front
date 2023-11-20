@@ -17,6 +17,7 @@ import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   return (
     <Router>

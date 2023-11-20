@@ -8,6 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 import EditProfile from "./Settings";
 import { useOutletContext } from "react-router-dom";
 import { MyContext } from "../MyContext";
+import MemberManagement from "./MemberManagement";
 
 const AdminDashboard = ({ isLoggedIn }: any) => {
 
@@ -63,8 +64,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
 
     return (
         <div className="admin-dashboard flex flex-col bg-white bg-no-repeat bg-cover min-h-screen">
-            {/* <Navbar /> */}
-            <div className="min-h-screen flex flex-col justify-center md:items-center">
+            <div className="min-h-screen flex flex-col md:items-center">
                 <DashboardMenu handlePage={setCurrentPage} />
                 {
                     firstName && (
@@ -99,7 +99,8 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                             <Tithes />
                         </div> :
                             currentPage === "Entries" ? <h2 className="mt-[200px]">Entries</h2> :
-                                currentPage === "Settings" ? <EditProfile /> : "Hello"
+                                currentPage === "Settings" ? <EditProfile /> :
+                                    currentPage === "Management" ? <MemberManagement /> : "Hello"
                 }
             </div>
         </div>
