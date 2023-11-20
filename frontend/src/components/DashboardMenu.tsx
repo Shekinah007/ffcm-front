@@ -57,6 +57,13 @@ const DashboardMenu = ({ handlePage }: any) => {
                     </div>
                     <hr className="w-[130px] " />
                 </div>
+                <div className="hover:text-yellow-400 duration-150 hover:scale-110">
+                    <div className="flex gap-1 items-center">
+                        <AccountCircle sx={{ fontSize: 30 }} />
+                        <button onClick={() => handlePage("MemberProfile")}>Member Profile</button>
+                    </div>
+                    <hr className="w-[130px] " />
+                </div>
 
             </div>
         </div>

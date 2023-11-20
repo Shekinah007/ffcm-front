@@ -9,6 +9,7 @@ import EditProfile from "./Settings";
 import { useOutletContext } from "react-router-dom";
 import { MyContext } from "../MyContext";
 import MemberManagement from "./MemberManagement";
+import MemberProfile from "../components/MemberProfile";
 
 const AdminDashboard = ({ isLoggedIn }: any) => {
 
@@ -100,7 +101,8 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                         </div> :
                             currentPage === "Entries" ? <h2 className="mt-[200px]">Entries</h2> :
                                 currentPage === "Settings" ? <EditProfile /> :
-                                    currentPage === "Management" ? <MemberManagement /> : "Hello"
+                                    currentPage === "Management" ? <MemberManagement setPage={setCurrentPage} /> :
+                                        currentPage == "MemberProfile" ? <MemberProfile /> : "Hello"
                 }
             </div>
         </div>
