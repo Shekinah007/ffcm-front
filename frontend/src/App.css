@@ -1,6 +1,4 @@
 * {
-    /* box-sizing: border-box; */
-    /* overflow-x: hidden; */
     scroll-behavior: smooth;
     transition: 0.5s;
 }
@@ -93,3 +91,7 @@
 /* button:hover hr {
     transform: scaleX(1.5);
 } */
+
+input {
+    outline: none;
+}

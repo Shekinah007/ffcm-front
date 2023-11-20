@@ -4,8 +4,14 @@ import worshipImg from "../assets/images/pexels-luis-quintero-2014775.jpg"
 import About from "./About"
 import { useEffect, useRef, useState } from "react";
 import Contact from "./Contact";
+import Navbar from "../components/Navbar";
+import { useOutletContext } from "react-router-dom";
 
 const Home = () => {
+
+    // const { test } = useOutletContext()
+    // console.log("TEST: ", test)
+
 
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
     const ref = useRef()
@@ -86,8 +92,10 @@ const Home = () => {
     }, [])
 
 
+
     return (
         <div id="" className="home-page">
+            {/* <Navbar /> */}
             {/* {() => textAnimations()} */}
             <div className="overlay h-screen w-screen absolute top-0 bg-black opacity-40"></div>
             <div className="bg-white">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import { toast } from "react-toastify"
 import DashboardMenu from "../components/DashboardMenu";
@@ -6,8 +6,13 @@ import Tithes from "./Tithes";
 import Profile from "./Profile";
 import { TypeAnimation } from "react-type-animation";
 import EditProfile from "./Settings";
+import { useOutletContext } from "react-router-dom";
+import { MyContext } from "../MyContext";
 
-const AdminDashboard = () => {
+const AdminDashboard = ({ isLoggedIn }: any) => {
+
+    console.log("IS Logged State: ", isLoggedIn);
+
 
     const [currentPage, setCurrentPage] = useState("Profile")
 
@@ -46,22 +51,19 @@ const AdminDashboard = () => {
             }
         }).then(data => {
             if (data) {
-                toast("Welcome back, ", data.firstName)
                 console.log("Data: ", data)
                 setUserData(data)
                 setUsername(data.username)
                 setFirstName(data.firstName)
                 setLastName(data.lastName)
+                // toast("Welcome back, ", data.first)
             }
         })
     }, [])
 
-    // console.log("CurrentPage: ", currentPage)
-
-
     return (
         <div className="admin-dashboard flex flex-col bg-white bg-no-repeat bg-cover min-h-screen">
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="min-h-screen flex flex-col justify-center md:items-center">
                 <DashboardMenu handlePage={setCurrentPage} />
                 {

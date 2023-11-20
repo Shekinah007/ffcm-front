@@ -9,8 +9,14 @@ import { Link } from "react-router-dom"
 //     currentPage: string;
 // }
 
+type NavProps = {
+    // isSignedIn: boolean
+}
 
-const Navbar = (): ReactElement => {
+const Navbar = ({ isSignedIn }: any) => {
+
+
+    console.log("Logged In? ", isSignedIn)
 
     const [prevScrollPos, setPrevScrollPos] = useState<number>(0)
     const [visible, setVisible] = useState(true)
@@ -25,7 +31,6 @@ const Navbar = (): ReactElement => {
         }
 
         setPrevScrollPos(currentScrollPos)
-
     }
 
     useEffect(() => {
@@ -48,8 +53,8 @@ const Navbar = (): ReactElement => {
     }
 
     return (
-        <div className={`duration-300 justify-center flex fixed w-screen flex-col 
-         md:flex-row  md:justify-between min-h-[40px] items-center z-20 px-3 md:p-
+        <div className={`duration-300 justify-center flex fixed z-50 w-screen flex-col 
+         md:flex-row  md:justify-between min-h-[40px] items-center px-3 md:p-
          duration-400 md:px-5 ${open ? "bg-gray-800/90 text-white" : "bg-black"}
          text-white border-b-2 border-yellow-500 ${!visible && !open && "-translate-y-20"}`}
         >
@@ -73,10 +78,19 @@ const Navbar = (): ReactElement => {
                 <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Giving  </Link>
                 {/* <hr /> */}
 
-                <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> <span className="md:hidden">-</span> SignIn  </Link>
+                {
+                    isSignedIn && <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> <span className="md:hidden">-</span> SignIn  </Link>
+                }
                 {/* <hr /> */}
 
-                <Link to={"/adminDashboard"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Dashboard") }}> <span className="md:hidden">-</span> Dashboard  </Link>
+                {
+                    !isSignedIn &&
+                    <Link to={"/adminDashboard"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Dashboard") }}>
+                        <span className="md:hidden">-</span> Dashboard
+                    </Link>
+                }
+
+
 
             </div>
             <div>
