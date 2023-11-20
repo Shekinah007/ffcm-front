@@ -6,10 +6,11 @@ import Tithes from "./Tithes";
 import Profile from "./Profile";
 import { TypeAnimation } from "react-type-animation";
 import EditProfile from "./Settings";
-import { useOutletContext } from "react-router-dom";
+import { Route, Routes, useOutletContext } from "react-router-dom";
 import { MyContext } from "../MyContext";
 import MemberManagement from "./MemberManagement";
 import MemberProfile from "../components/MemberProfile";
+import Logout from "../components/Logout";
 
 const AdminDashboard = ({ isLoggedIn }: any) => {
 
@@ -65,7 +66,16 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
 
     return (
         <div className="admin-dashboard flex flex-col bg-white bg-no-repeat bg-cover min-h-screen">
-            <div className="min-h-screen flex flex-col md:items-center">
+            <div className="min-h-screen flex flex-col md:flex-row md:items-center">
+                <p>Hello world</p>
+                <Routes>
+                    <Route path="/" element={<Profile userData={userData} />} />
+                    <Route path="/tithes" element={<Tithes />} />
+                    <Route path="/settings" element={<EditProfile />} />
+                    <Route path="/members" element={<MemberManagement />} />
+                    <Route path="/memberProfile" element={<MemberProfile />} />
+                    <Route path="/logout" element={<Logout />} />
+                </Routes>
                 <DashboardMenu handlePage={setCurrentPage} />
                 {
                     firstName && (
@@ -75,7 +85,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
                                     // '- Welcome  ${firstName && firstName}',
-                                    // "Welcome back, " + firstName,
+                                    "Welcome back, " + firstName,
                                     400, // wait 1s before replacing "Mice" with "Hamsters"
 
                                 ]}
@@ -91,7 +101,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                     )
                 }
 
-                {
+                {/* {
                     currentPage === "Profile" ? <Profile userData={userData} /> :
                         currentPage === "Tithes" ? <div>
                             <Tithes />
@@ -103,7 +113,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                                 currentPage === "Settings" ? <EditProfile /> :
                                     currentPage === "Management" ? <MemberManagement setPage={setCurrentPage} /> :
                                         currentPage == "MemberProfile" ? <MemberProfile /> : "Hello"
-                }
+                } */}
             </div>
         </div>
     )

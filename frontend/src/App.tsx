@@ -18,12 +18,12 @@ import AdminDashboard from './pages/AdminDashboard'
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [currentPage, setCurrentPage] = useState("Home");
 
   return (
     <Router>
       {/* <div onScroll={() => { alert("Scrolling") }} className="bg-black">
         <ToastContainer autoClose={1500} transition={Flip} />
-        <Navbar isSignedIn={isLoggedIn} />
         <div onScroll={() => { alert("Scrolling") }} className="">
           <Outlet />
         </div>
@@ -31,15 +31,15 @@ function App() {
       </div> */}
       <div className="bg-black">
         <ToastContainer autoClose={1500} transition={Flip} />
-        <Navbar isSignedIn={isLoggedIn} />
+        <Navbar isSignedIn={isLoggedIn} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         <div onScroll={() => { alert("Scrolling") }} className="">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />} />
+            <Route path="/signin" element={<SignIn setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/adminDashboard" element={<AdminDashboard isLoggedIn={isLoggedIn} />} />
+            <Route path="/adminDashboard/*" element={<AdminDashboard isLoggedIn={isLoggedIn} />} />
           </Routes>
         </div>
         <Footer />

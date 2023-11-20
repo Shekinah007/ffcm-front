@@ -2,7 +2,7 @@ const MemberProfile = () => {
 
 
     return (
-        <div className="mt-20 px-3">
+        <div className="animate-rec mt-20 px-3">
             <h2 className="font-semibold text-2xl">Matthew Sunny Man</h2>
             <hr className=" bg-black" />
             <div className="flex flex-col gap-6 mt-5 px-5">

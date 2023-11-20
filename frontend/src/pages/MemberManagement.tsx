@@ -1,3 +1,4 @@
+import { AccountCircle } from "@mui/icons-material"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -5,12 +6,13 @@ import { toast } from "react-toastify"
 
 export const UserComponent = ({ name, setPage }: any) => {
     return (
-        <button onClick={() => { setPage("MemberProfile") }} className="card rounded-md p-2 px-4 text-lg md:text-xl font-semibold bg-white text-left">
+        <button onClick={() => { setPage("MemberProfile") }}
+            className="card flex items-center gap-2 text-yellow-600 rounded-md p-2 px-2 text-lg md:text-xl font-semibold bg-white text-left">
+            <AccountCircle />
             <p className="text-yellow-800">{name}</p>
         </button>
     )
 }
-
 
 const MemberManagement = ({ setPage }: any) => {
     const [members, setMembers] = useState([])

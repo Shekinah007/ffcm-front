@@ -7,12 +7,12 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Link } from "react-router-dom"
 
 
-const Navbar = ({ isSignedIn }: any) => {
+const Navbar = ({ isSignedIn, currentPage, setCurrentPage }: any) => {
 
     const [prevScrollPos, setPrevScrollPos] = useState<number>(0)
     const [visible, setVisible] = useState(true)
     const [open, setOpen] = useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState<String>("Home")
+    // const [currentPage, setCurrentPage] = useState<String>("Home")
 
     const handleScroll = () => {
         const currentScrollPos = window.scrollY

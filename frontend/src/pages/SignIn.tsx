@@ -7,7 +7,7 @@ import LoadingOverlay from "../components/LoadingOverlay";
 
 
 
-const SignIn = ({ setIsLoggedIn, isLoggedIn }: any) => {
+const SignIn = ({ setCurrentPage, setIsLoggedIn, isLoggedIn }: any) => {
 
     window.scrollTo(0, 0)
 
@@ -70,6 +70,7 @@ const SignIn = ({ setIsLoggedIn, isLoggedIn }: any) => {
                 setVisibility(false)
                 setIsLoggedIn(true) // set log in state
                 setTimeout(() => {
+                    setCurrentPage("Dashboard")
                     navigate("/adminDashboard");
                 }, 1500)
             }).catch((error) => {
