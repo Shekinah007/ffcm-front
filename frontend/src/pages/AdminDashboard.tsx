@@ -69,7 +69,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
             <div className="min-h-screen flex flex-col md:flex-row md:items-center">
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
-                    <Route path="/tithes" element={<Tithes />} />
+                    <Route path="/tithes/" element={<Tithes />} />
                     <Route path="/settings" element={<EditProfile />} />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />

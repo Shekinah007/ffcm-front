@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 
 const MemberProfile = () => {
@@ -32,10 +32,8 @@ const MemberProfile = () => {
 
     }, [])
 
-
-
     return (
-        <div className="animate-rec mt-20 px-3">
+        <div className="animate-rec mt-20 mx-2 px-3">
             <h2 className="font-semibold text-2xl">{userData && userData.firstName + " " + userData.lastName}</h2>
             <hr className=" bg-black" />
             {
@@ -68,6 +66,10 @@ const MemberProfile = () => {
                     </div>
                 </div>
             }
+
+            <Link to={"/adminDashboard/tithes"} className="rounded-md p-2 bg-gray-400 text-white mt-4">
+                View Payment Records
+            </Link>
 
         </div>
     )
