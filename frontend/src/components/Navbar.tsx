@@ -5,21 +5,14 @@ import churchLogo from "../assets/images/ffcmLogo.png"
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import { Link } from "react-router-dom"
-// interface Menu {
-//     currentPage: string;
-// }
 
-type NavProps = {
-    // isSignedIn: boolean
-}
 
 const Navbar = ({ isSignedIn }: any) => {
 
-
-    console.log("Logged In? ", isSignedIn)
-
     const [prevScrollPos, setPrevScrollPos] = useState<number>(0)
     const [visible, setVisible] = useState(true)
+    const [open, setOpen] = useState<boolean>(false);
+    const [currentPage, setCurrentPage] = useState<String>("Home")
 
     const handleScroll = () => {
         const currentScrollPos = window.scrollY
@@ -34,12 +27,13 @@ const Navbar = ({ isSignedIn }: any) => {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
+        if (currentPage == "Home") {
+            window.addEventListener('scroll', handleScroll)
+        }
         return () => window.removeEventListener("scroll", handleScroll)
     })
 
-    const [open, setOpen] = useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState<String>("Home")
+
 
     const highlightPage = (page: string): void => {
 
@@ -58,7 +52,6 @@ const Navbar = ({ isSignedIn }: any) => {
          duration-400 md:px-5 ${open ? "bg-gray-800/90 text-white" : "bg-black"}
          text-white border-b-2 border-yellow-500 ${!visible && !open && "-translate-y-20"}`}
         >
-            {/* <div className={`overlay fixed h-screen w-screen top-0 duration-300 ${!open && "h-[0px]"} bg-black/50 -z-50`}></div> */}
 
             <div className="" >
                 <img src={shieldLogo} alt="logo home" className='h-16 hidden md:block' />
@@ -68,29 +61,44 @@ const Navbar = ({ isSignedIn }: any) => {
                 <Link to={"/"}><img src={churchLogo} alt="logo" className="h-7" /></Link>
             </div>
             <div className={`nav h-0 overflow-hidden py-0 px-3 duration-300 text-xl   ${open && 'h-64 pt-0 mt-5'} font-semibold md:p-3 md:py-3 md:h-10 flex flex-col justify-center  md:justify-end md:items-center gap-3 w-screen md:static md:flex-row`} >
-                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Home"); }}> <span className="md:hidden">-</span> Home  </Link>
-                {/* <hr /> */}
+                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"
+                    onClick={() => { highlightPage("Home"); }}>
+                    <span className="md:hidden">- </span>
+                    Home
+                    <hr className="mt-1" />
+                </Link>
                 {/* <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Contact"); }}> <span className="md:hidden">-</span> Contact - </Link> */}
-                <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" > <span className="md:hidden">-</span> About  </a>
-                {/* <hr /> */}
-
-                <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Contact  </a>
-                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Giving  </Link>
-                {/* <hr /> */}
 
                 {
-                    !isSignedIn && <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("SignIn") }}> <span className="md:hidden">-</span> SignIn  </Link>
+                    currentPage === "Home" &&
+                    <a href="#about" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" >
+                        <span className="md:hidden">- </span> About
+                        <hr className="mt-1" />
+                    </a>
                 }
-                {/* <hr /> */}
+
+                {/* <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Contact  </a> */}
+                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg">
+                    <span className="md:hidden">-</span> Giving
+                    <hr className="mt-1" />
+                </Link>
+
+                {
+                    !isSignedIn && <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"
+                        onClick={() => { highlightPage("SignIn") }}>
+                        <span className="md:hidden">- </span>
+                        SignIn
+                        <hr className="mt-1" />
+                    </Link>
+                }
 
                 {
                     isSignedIn &&
                     <Link to={"/adminDashboard"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Dashboard") }}>
                         <span className="md:hidden">-</span> Dashboard
+                        <hr className="mt-1" />
                     </Link>
                 }
-
-
 
             </div>
             <div>
