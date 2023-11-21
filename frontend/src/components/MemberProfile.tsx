@@ -33,7 +33,7 @@ const MemberProfile = () => {
     }, [])
 
     return (
-        <div className="animate-rec bg-cover bg-bg6 w-full md:px-10 px-3 flex flex-col h-screen justify-center gap-6">
+        <div className="animate-rec bg-cover w-full md:px-28 px-3 flex flex-col h-screen justify-center gap-6">
             <div className="flex flex-col gap-2">
                 <h2 className="font-semibold text-2xl px-2">{userData && userData.firstName + " " + userData.lastName}</h2>
                 <hr className=" bg-black" />
@@ -69,7 +69,7 @@ const MemberProfile = () => {
                 </div>
             }
 
-            <Link to={"/adminDashboard/tithes"} className="rounded-md p-2 text-center bg-yellow-500 text-white">
+            <Link to={"/adminDashboard/tithes"} className="rounded-md p-2 text-center self-end bg-yellow-500 text-white">
                 View Payment Records
             </Link>
 

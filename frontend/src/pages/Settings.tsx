@@ -6,9 +6,9 @@ import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
 
 const EditProfile = () => {
     return (
-        <div className="animate-rec bg-white card p-3 mt-10 pt-10 rounded-lg w-screen flex flex-col items-center justify-center self-center">
-            <h2 className="font-semibold text-2xl mb-2 self-start ml-9">Edit Profile</h2>
-            <hr className="bg-black w-[300px] mb-4" />
+        <div className="animate-rec bg-white/0 bg-cover bg-bg6 min-h-screen card p-3 mt-10 pt-10 rounded-lg w-screen flex flex-col items-center justify-center self-center">
+            <h2 className="font-semibold text-xl mb-1 self-start ml-4">Edit Profile</h2>
+            <hr className="bg-black w-[330px] mb-4" />
             <div className="flex flex-col gap-4">
                 <form className="flex flex-col gap-3">
                     <div className="flex flex-col gap-1">
@@ -55,7 +55,7 @@ const EditProfile = () => {
                             <input className="rounded-md p-1 w-[300px] bg-gray-200" id="newPassword" type="password"></input>
                         </div>
                     </div>
-                    <hr className="bg-black w-[300px] mb-2 mt-2" />
+                    <hr className="bg-black w-[330px] mb-2 mt-2" />
                     <button className="p-2 bg-blue-600 self-center justify-self-center font-semibold text-white text-lg rounded-md">
                         Save Changes
                     </button>

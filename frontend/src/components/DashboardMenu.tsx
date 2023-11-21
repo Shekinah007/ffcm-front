@@ -10,13 +10,13 @@ const DashboardMenu = ({ handlePage }: any) => {
 
     return (
         <div className={`z-10 top-0 pt-[70px] md:pt-[100px] h-screen duration-300 mt-0 
-            text-md md:text-lg w-[250px]  left-0
-           fixed bg-black/70 py-5 px-4 rounded-l-none text-white rounded-md border-r-2 border-l-0 border-yellow-300 
-            ${menuOpen ? "translate-x-0" : "-translate-x-[250px] md:-translate-x-[250px]"}
+            text-md md:text-lg w-[250px] md:w-[300px] left-0
+           fixed md:relative bg-black/70 py-5 px-4 rounded-l-none text-white rounded-md border-r-2 border-l-0 border-yellow-300 
+            ${menuOpen ? "translate-x-0" : "-translate-x-[250px]  md:-translate-x-0"}
         `}>
             <button
                 onClick={() => { setMenuOpen(prevState => !prevState) }}
-                className={`absolute top-1/2 -mt-[30px] flex items-center justify-center -right-[28px] py-3 pl-0 px-0 
+                className={`md:hidden absolute top-1/2 -mt-[30px] flex items-center justify-center -right-[28px] py-3 pl-0 px-0 
                 pr-1 rounded-r-md  bg-black/30 hover:text-yellow-300
                 ${menuOpen && "-scale-x-100 rounded-r-none rounded-l-md pl-1 -right-[33px] text-yellow-300"}
                 `}>
