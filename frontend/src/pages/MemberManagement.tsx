@@ -40,7 +40,7 @@ const MemberManagement = ({ setPage }: any) => {
     }, [])
 
     return (
-        <div className="mt-24 md:mt-28 px-5 md:px-16 w-full">
+        <div className="pt-24 md:pt-20 px-5 md:px-16 w-full min-h-screen bg-cover">
             <h1 className="font-semibold text-2xl md:text-3xl mb-2 text-gray-600 px-2">User Management</h1>
             <h2 className="md:text-2xl text-xl font-semibold text-gray-600 mb-2 px-2">All Users</h2>
             <hr className="bg-black" />

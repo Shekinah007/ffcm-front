@@ -1,4 +1,5 @@
 import { AccountCircle, Settings } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 type ProfileProps = {
     userData: {
@@ -41,10 +42,10 @@ const Profile = ({ userData }: ProfileProps) => {
                 </table>
                 <hr className="bg-black mt-4" />
             </div>
-            <button className="card mt-4 text-xl bg-gray-300 flex items-center gap-1 self-center py-2 font-bold text-gray-700 px-4 rounded-md">
+            <Link to={"/adminDashboard/settings"} className="card mt-4 text-xl bg-gray-300 flex items-center gap-1 self-center py-2 font-bold text-gray-700 px-4 rounded-md">
                 <Settings />
                 <p>Edit</p>
-            </button>
+            </Link>
         </div>
     )
 }

@@ -33,7 +33,7 @@ const MemberProfile = () => {
     }, [])
 
     return (
-        <div className="animate-rec w-full md:px-10 px-3 flex flex-col h-screen justify-center gap-6">
+        <div className="animate-rec bg-cover bg-bg6 w-full md:px-10 px-3 flex flex-col h-screen justify-center gap-6">
             <div className="flex flex-col gap-2">
                 <h2 className="font-semibold text-2xl px-2">{userData && userData.firstName + " " + userData.lastName}</h2>
                 <hr className=" bg-black" />
