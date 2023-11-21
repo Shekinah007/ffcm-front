@@ -9,7 +9,7 @@ const DashboardMenu = ({ handlePage }: any) => {
     const [menuOpen, setMenuOpen] = useState(true);
 
     return (
-        <div className={`z-10  top-[200px] h-full duration-300 -mt-[150px]
+        <div className={`z-10  top-0 pt-[70px] md:pt-[100px] h-screen duration-300 mt-0
             text-md md:text-lg w-[250px]  left-0
            fixed  bg-black/70 py-5 px-4 rounded-l-none text-white rounded-md border-r-2 border-l-0 border-yellow-300 
             ${menuOpen ? "translate-x-0" : "-translate-x-[250px] md:-translate-x-[250px]"}

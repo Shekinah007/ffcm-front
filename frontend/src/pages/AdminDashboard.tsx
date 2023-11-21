@@ -79,12 +79,12 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                 {
                     firstName && (
                         <p className="text-md text-sm font-bold absolute top-[70px] right-2
-                        md:top-[100px] text-gray-600">
+                        md:top-[70px] md:right-10 text-gray-600">
                             <TypeAnimation
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
                                     // '- Welcome  ${firstName && firstName}',
-                                    "Welcome back, " + firstName,
+                                    "Welcome back, " + firstName + "_",
                                     400, // wait 1s before replacing "Mice" with "Hamsters"
 
                                 ]}

@@ -33,41 +33,43 @@ const MemberProfile = () => {
     }, [])
 
     return (
-        <div className="animate-rec mt-20 mx-2 px-3">
-            <h2 className="font-semibold text-2xl">{userData && userData.firstName + " " + userData.lastName}</h2>
-            <hr className=" bg-black" />
+        <div className="animate-rec w-full md:px-10 px-3 flex flex-col h-screen justify-center gap-6">
+            <div className="flex flex-col gap-2">
+                <h2 className="font-semibold text-2xl px-2">{userData && userData.firstName + " " + userData.lastName}</h2>
+                <hr className=" bg-black" />
+            </div>
             {
                 userData &&
-                <div className="flex flex-col gap-6 mt-5 px-5">
+                <div className="flex flex-col gap-6 px-5">
                     <div>
-                        <p className="font-semibold text-lg text-gray-500">Phone: </p>
+                        <p className="font-semibold text-md text-gray-500">Phone: </p>
                         <hr className=" bg-black" />
-                        <p className="font-semibold text-xl text-right text-gray-700">{userData.phone}</p>
+                        <p className="font-semibold text-md text-right text-gray-700">{userData.phone}</p>
                     </div>
                     <div>
-                        <p className="font-semibold text-lg text-gray-500">Username/Email: </p>
+                        <p className="font-semibold text-md text-gray-500">Username/Email: </p>
                         <hr className=" bg-black" />
-                        <p className="font-semibold text-xl text-right text-gray-700">{userData.username}</p>
+                        <p className="font-semibold text-md text-right text-gray-700">{userData.username}</p>
                     </div>
                     <div>
-                        <p className="font-semibold text-lg text-gray-500">Gender: </p>
+                        <p className="font-semibold text-md text-gray-500">Gender: </p>
                         <hr className=" bg-black" />
-                        <p className="font-semibold text-xl text-right text-gray-700">Male</p>
+                        <p className="font-semibold text-md text-right text-gray-700">Male</p>
                     </div>
                     <div>
-                        <p className="font-semibold text-lg text-gray-500">Address: </p>
+                        <p className="font-semibold text-md text-gray-500">Address: </p>
                         <hr className=" bg-black" />
-                        <p className="font-semibold text-xl text-right text-gray-700">No Address</p>
+                        <p className="font-semibold text-md text-right text-gray-700">No Address</p>
                     </div>
                     <div>
-                        <p className="font-semibold text-lg text-gray-500">Relationship Status: </p>
+                        <p className="font-semibold text-md text-gray-500">Relationship Status: </p>
                         <hr className=" bg-black" />
-                        <p className="font-semibold text-xl text-right text-gray-700">Single</p>
+                        <p className="font-semibold text-md text-right text-gray-700">Single</p>
                     </div>
                 </div>
             }
 
-            <Link to={"/adminDashboard/tithes"} className="rounded-md p-2 bg-gray-400 text-white mt-4">
+            <Link to={"/adminDashboard/tithes"} className="rounded-md p-2 text-center bg-yellow-500 text-white">
                 View Payment Records
             </Link>
 
