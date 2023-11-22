@@ -13,6 +13,8 @@ import MemberProfile from "../components/MemberProfile";
 import Logout from "../components/Logout";
 
 import image404 from "../assets/illustrations/401 Error Unauthorized-pana (1).png"
+import { Announcement } from "@mui/icons-material";
+import Announcements from "./Announcements";
 
 const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) => {
 
@@ -69,7 +71,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 // toast("Success")
                 return res.json()
             } else {
-                toast("Error")
+                // toast("Error")
                 return ""
             }
         }).then(data => {
@@ -79,16 +81,10 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 setUsername(data.username)
                 setFirstName(data.firstName)
                 setLastName(data.lastName)
-                // toast("Welcome back, ", data.first)
             }
         })
     }, [])
 
-    //         < Route path = "/logout" element = {
-    //     < Logout
-    // setIsLoggedIn = { setIsLoggedIn }
-    // setMainCurrentPage = { setMainCurrentPage } />}
-    // />
 
     return (
         <div className="admin-dashboard relative flex flex-col bg-white bg-bg6 bg-no-repeat bg-cover  justify-center min-h-screen md:h-screen">
@@ -111,11 +107,11 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                     <Route path="/settings" element={<EditProfile />} />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
-
+                    <Route path="/announcements" element={<Announcements />} />
                 </Routes>
                 {
                     firstName && (
-                        <p className="text-md text-sm font-bold absolute top-[70px] right-5
+                        <p className="text-md text-sm font-bold absolute top-[75px] right-5
                         md:top-[70px] md:right-10 text-gray-600">
                             <TypeAnimation
                                 sequence={[
@@ -131,25 +127,11 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                                 style={{ fontSize: '1em', display: 'inline-block', fontStyle: "italic" }}
                                 cursor={false}
                             />
-
-                            {/* Welcome back, {firstName && firstName} */}
                         </p>
                     )
                 }
 
-                {/* {
-                    currentPage === "Profile" ? <Profile userData={userData} /> :
-                        currentPage === "Tithes" ? <div>
-                            <Tithes />
-                            <Tithes />
-                            <Tithes />
-                            <Tithes />
-                        </div> :
-                            currentPage === "Entries" ? <h2 className="mt-[200px]">Entries</h2> :
-                                currentPage === "Settings" ? <EditProfile /> :
-                                    currentPage === "Management" ? <MemberManagement setPage={setCurrentPage} /> :
-                                        currentPage == "MemberProfile" ? <MemberProfile /> : "Hello"
-                } */}
+
 
 
 

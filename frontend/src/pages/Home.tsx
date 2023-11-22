@@ -8,21 +8,9 @@ import Navbar from "../components/Navbar";
 import { useOutletContext } from "react-router-dom";
 
 const Home = () => {
-
-    // const { test } = useOutletContext()
-    // console.log("TEST: ", test)
-
+    window.scrollTo(0, 0)
 
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
-    const ref = useRef()
-
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(([entry]) => {
-    //         setIsIntersecting(entry.isIntersecting)
-    //     }, { rootMargin: "-300px" })
-    //     console.log("Intersection", isIntersecting)
-
-    // }, [])
 
     useEffect(() => {
         let classes = document.querySelectorAll(".animate")
@@ -74,10 +62,6 @@ const Home = () => {
     ]
 
     const [currentVerse, setCurrentVerse] = useState(verses[0])
-    // console.log("currentVerse: ", currentVerse.ref)
-
-
-
 
     useEffect(() => {
         let i = 0;
@@ -95,8 +79,6 @@ const Home = () => {
 
     return (
         <div id="" className="home-page">
-            {/* <Navbar /> */}
-            {/* {() => textAnimations()} */}
             <div className="overlay h-screen w-screen absolute top-0 bg-black opacity-40"></div>
             <div className="bg-white">
                 <div id="home" className="bg-bg1 md:bg-bg2 flex flex-col gap-4 bg-cover h-screen w-screen text-lg md:text-xl bg-black text-gray-300 justify-center items-center">
@@ -120,10 +102,7 @@ const Home = () => {
                             repeat={Infinity}
                             cursor={true}
                         />
-
                     </div>
-
-
                 </div>
                 <About />
 
@@ -148,7 +127,6 @@ const Home = () => {
                         </div>
                     </div>
                     <img src={worshipImg} alt="" className="w-screen md:w-1/2 md:block" />
-
                 </div>
                 <Contact />
             </div>

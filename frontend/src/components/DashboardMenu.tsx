@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import { AccountCircle, DashboardCustomize, FileOpen, Logout, NoteAdd, NotificationsNone, Settings, } from '@mui/icons-material';
+import { AccountCircle, DashboardCustomize, FileOpen, Logout, ManageAccounts, NoteAdd, NotificationsNone, Settings, } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -43,8 +43,8 @@ const DashboardMenu = ({ handlePage, currentPage, setLogoutModal }: any) => {
 
                 <Link to={"/adminDashboard/members"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Management" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
-                        <AccountCircle sx={{ fontSize: 30 }} />
-                        <button onClick={() => handlePage("Management")}>Manage Members</button>
+                        <ManageAccounts sx={{ fontSize: 30 }} />
+                        <button onClick={() => handlePage("Management")}>Management</button>
                     </div>
                     <hr className="w-[200px] " />
                 </Link>
