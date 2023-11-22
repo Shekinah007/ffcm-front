@@ -65,7 +65,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
     }, [])
 
     return (
-        <div className="admin-dashboard flex flex-col bg-white  bg-no-repeat bg-cover min-h-screen">
+        <div className="admin-dashboard relative flex flex-col bg-white bg-bg6  bg-no-repeat bg-cover  min-h-screen md:h-screen">
             <div className="min-h-screen flex flex-col md:flex-row md:items-center">
                 <DashboardMenu handlePage={setCurrentPage} currentPage={currentPage} />
                 <Routes>
@@ -113,9 +113,27 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                                     currentPage === "Management" ? <MemberManagement setPage={setCurrentPage} /> :
                                         currentPage == "MemberProfile" ? <MemberProfile /> : "Hello"
                 } */}
+
+
+
+
+                <a href="https://www.freepik.com/free-vector/abstract-desktop-background-white-geometric-design-vector_18705217.htm#from_view=detail_alsolike"
+                    className="absolute bottom-0 right-0 text-sm text-gray-600 font-semibold"
+                >
+                    Image by rawpixel.com on Freepik
+                </a>
+
+
             </div>
-        </div>
+        </div >
     )
 }
+
+// <a href="https://www.freepik.com/free-vector/paper-style-layers-background_7080891.htm#query=minimalist%20background&position=37&from_view=keyword&track=ais&uuid=e19ef547-fe91-448e-9e39-ab2d81a4a803"
+//     className="absolute bottom-0 right-0 text-sm text-gray-600 font-semibold"
+// >
+//     Image by pikisuperstar
+//     on Freepik
+// </a>
 
 export default AdminDashboard

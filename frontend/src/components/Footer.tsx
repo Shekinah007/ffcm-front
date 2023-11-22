@@ -44,6 +44,9 @@ const Footer = () => {
 
             </div>
             <p className="text-gray-400 self-center">Copyright ©2023 All Rights Reserved</p>
+            {/* <p className="text-gray-400 self-center">
+                Image by <a href="https://www.freepik.com/free-vector/white-abstract-background-design_12188678.htm#query=white%20pattern&position=8&from_view=keyword&track=ais&uuid=b30eb286-fc58-4efb-80bf-113de71fd42d">Freepik</a>
+            </p> */}
         </div>
     )
 }

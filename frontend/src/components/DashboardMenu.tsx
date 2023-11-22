@@ -9,9 +9,9 @@ const DashboardMenu = ({ handlePage, currentPage }: any) => {
     const [menuOpen, setMenuOpen] = useState(true);
 
     return (
-        <div className={`z-10 top-0 pt-[70px] md:pt-[100px] h-screen duration-300 mt-0 
+        <div className={`z-10 top-0 pt-[70px] h-screen duration-300 mt-0 
             text-md md:text-lg w-[250px] md:w-[300px] left-0
-           fixed md:relative bg-black/70 py-5 px-4 rounded-l-none text-white rounded-md border-r-2 border-l-0 border-yellow-300 
+           fixed md:relative md:py-0 md:pt-[100px] bg-black/70 md:bg-black/40 py-5 px-4 rounded-l-none text-white rounded-md border-r-2 border-l-0 border-yellow-300 
             ${menuOpen ? "translate-x-0" : "-translate-x-[250px]  md:-translate-x-0"}
         `}>
             <button
@@ -23,7 +23,7 @@ const DashboardMenu = ({ handlePage, currentPage }: any) => {
                 {/* {">>"} */}
                 <DoubleArrowIcon />
             </button>
-            <div className="flex flex-col gap-9 items-start duration-150">
+            <div className="flex  flex-col gap-9 items-start duration-150">
                 <Link to={"/adminDashboard"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Profile" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <AccountCircle sx={{ fontSize: 30 }} />
