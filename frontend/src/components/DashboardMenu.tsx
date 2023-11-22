@@ -26,14 +26,14 @@ const DashboardMenu = ({ handlePage, currentPage, setLogoutModal }: any) => {
                 <DoubleArrowIcon />
             </button>
             <div className="flex  flex-col gap-9 items-start duration-150">
-                <Link to={"/adminDashboard"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Profile" ? "text-yellow-300" : ""}`}>
+                <Link to={"/adminDashboard"} className={`hover:text-yellow-400 duration-150  rounded-md p-1 hover:scale-110  ${currentPage === "Profile" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <AccountCircle sx={{ fontSize: 30 }} />
                         <button onClick={() => handlePage("Profile")}>Profile</button>
                     </div>
                     <hr className="w-[200px]" />
                 </Link>
-                <Link to={"/adminDashboard/settings"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Tithes" ? "text-yellow-300" : ""}`}>
+                <Link to={"/adminDashboard/settings"} className={`hover:text-yellow-400 duration-150 hover:scale-110   ${currentPage === "Tithes" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <NoteAdd />
                         <button onClick={() => handlePage("Tithes")}>Records</button>
@@ -41,17 +41,17 @@ const DashboardMenu = ({ handlePage, currentPage, setLogoutModal }: any) => {
                     <hr className="w-[200px] " />
                 </Link>
 
-                <Link to={"/adminDashboard/members"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Management" ? "text-yellow-300" : ""}`}>
+                <Link to={"/adminDashboard/members"} className={`hover:text-yellow-400 duration-150 hover:scale-110   ${currentPage === "Management" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <ManageAccounts sx={{ fontSize: 30 }} />
                         <button onClick={() => handlePage("Management")}>Management</button>
                     </div>
                     <hr className="w-[200px] " />
                 </Link>
-                <Link to={"/adminDashboard/announcements"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Management" ? "text-yellow-300" : ""}`}>
+                <Link to={"/adminDashboard/announcements"} className={`hover:text-yellow-400 duration-150 hover:scale-110   ${currentPage === "Management" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <NotificationsNone sx={{ fontSize: 30 }} />
-                        <button onClick={() => handlePage("Announcements")}>Announcements</button>
+                        <button onClick={() => handlePage("Announcements")}>Bulletin</button>
                     </div>
                     <hr className="w-[200px] " />
                 </Link>

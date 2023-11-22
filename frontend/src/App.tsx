@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { Home } from '@mui/icons-material'
 import Home from './pages/Home.tsx'
 import { MyContext } from './MyContext'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { HashRouter as Router, Link } from 'react-router-dom'
 import SignIn from './pages/SignIn'
 import Register from './components/Register'
 import About from './pages/About'

@@ -51,8 +51,10 @@ const Tithes = () => {
 
     return (
         <div className="animate-rec card rounded-md py-3 bg- md:w-full record flex flex-col gap-2 mt-20 mb-10 px-5 md:px-32 text-gray-900 font-semibold">
-            <NoteAdd sx={{ fontSize: 50 }} className="self-center text-yellow-500" />
-            <h2 className="text-xl font-semibold">Records for User Agilie Mani</h2>
+            <h2 className="text-xl font-semibold flex items-center">
+                <NoteAdd sx={{ fontSize: 50 }} className="self-center text-yellow-500" />
+                <p>Records for User Agilie Mani</p>
+            </h2>
             <hr className="bg-black mb-3" />
             <table className="card text-gray-700 md:w-[500px] self-center" >
                 <tr className="font-bold text-xl bg-blue-100">

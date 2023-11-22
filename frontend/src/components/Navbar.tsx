@@ -67,7 +67,13 @@ const Navbar = ({ isSignedIn, currentPage, setCurrentPage }: any) => {
                     Home
                     <hr className="mt-1" />
                 </Link>
-                {/* <Link to={"/contact"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg" onClick={() => { highlightPage("Contact"); }}> <span className="md:hidden">-</span> Contact - </Link> */}
+
+                <Link to={"/"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"
+                    onClick={() => { highlightPage("Gallery"); }}>
+                    <span className="md:hidden">- </span>
+                    Gallery
+                    <hr className="mt-1" />
+                </Link>
 
                 {
                     currentPage === "Home" &&
