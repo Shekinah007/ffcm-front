@@ -12,16 +12,36 @@ import MemberManagement from "./MemberManagement";
 import MemberProfile from "../components/MemberProfile";
 import Logout from "../components/Logout";
 
-const AdminDashboard = ({ isLoggedIn, setIsLoggedIn }: any) => {
+import image404 from "../assets/illustrations/401 Error Unauthorized-pana (1).png"
+
+const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) => {
 
     console.log("IS Logged State: ", isLoggedIn);
 
+    if (!isLoggedIn) {
+        return (
+            <div className="h-screen flex flex-col items-center justify-center text-white">
+                <img
+                    alt="unauthorized" src={image404}
+                    className="h-[300px]"
+                />
+                <p className="text-3xl italic">Unauthorized!</p>
+                <a
+                    href="https://storyset.com/internet"
+                    className="absolute bottom-0 right-0 text-gray-500 text-sm"
+                >
+                    Internet illustrations by Storyset
+                </a>
+            </div>
+        )
+    }
 
     const [currentPage, setCurrentPage] = useState("Profile")
 
     const [username, setUsername] = useState<string>("")
     const [firstName, setFirstName] = useState<string>("")
     const [lastName, setLastName] = useState<string>("")
+    const [logoutModal, setLogoutModal] = useState(false)
 
 
     const [userData, setUserData] = useState({
@@ -64,17 +84,34 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn }: any) => {
         })
     }, [])
 
+    //         < Route path = "/logout" element = {
+    //     < Logout
+    // setIsLoggedIn = { setIsLoggedIn }
+    // setMainCurrentPage = { setMainCurrentPage } />}
+    // />
+
     return (
         <div className="admin-dashboard relative flex flex-col bg-white bg-bg6 bg-no-repeat bg-cover  justify-center min-h-screen md:h-screen">
             <div className="min-h-screen flex flex-col   md:flex-row md:items-center">
-                <DashboardMenu handlePage={setCurrentPage} currentPage={currentPage} />
+                <DashboardMenu
+                    handlePage={setCurrentPage}
+                    currentPage={currentPage}
+                    setLogoutModal={setLogoutModal}
+                />
+                {logoutModal &&
+                    <Logout
+                        setIsLoggedIn={setIsLoggedIn}
+                        setMainCurrentPage={setMainCurrentPage}
+                        setLogoutModal={setLogoutModal}
+                    />
+                }
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
                     <Route path="/tithes/" element={<Tithes />} />
                     <Route path="/settings" element={<EditProfile />} />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
-                    <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />} />
+
                 </Routes>
                 {
                     firstName && (
@@ -118,7 +155,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn }: any) => {
 
 
                 <a href="https://www.freepik.com/free-vector/abstract-desktop-background-white-geometric-design-vector_18705217.htm#from_view=detail_alsolike"
-                    className="absolute bottom-0 right-0 text-sm text-gray-600 font-semibold"
+                    className="absolute bottom-0 right-0 text-sm text-gray-600/70 font-semibold"
                 >
                     Image by rawpixel.com on Freepik
                 </a>

@@ -77,17 +77,11 @@ const Navbar = ({ isSignedIn, currentPage, setCurrentPage }: any) => {
                     </a>
                 }
 
-                {/* <a href="#contact" className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"> <span className="md:hidden">-</span> Contact  </a> */}
-                <Link to={"/payments"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg">
-                    <span className="md:hidden">-</span> Giving
-                    <hr className="mt-1" />
-                </Link>
-
                 {
                     !isSignedIn && <Link to={"/signin"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"
                         onClick={() => { highlightPage("SignIn") }}>
                         <span className="md:hidden">- </span>
-                        SignIn
+                        Sign In
                         <hr className="mt-1" />
                     </Link>
                 }
