@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 import { useOutletContext } from "react-router-dom";
 
 const Home = () => {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
 
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
 
