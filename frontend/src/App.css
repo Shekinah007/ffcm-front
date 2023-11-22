@@ -42,7 +42,6 @@
 .sign-page,
 .admin-dashboard,
 .not-found,
-.log-out,
 .profile,
 .member-profile {
     animation: entrance 0.7s;
@@ -91,7 +90,6 @@
     }
 
     to {
-        transform: translateY(0);
         opacity: 1;
     }
 }
@@ -102,4 +100,11 @@
 
 input {
     outline: none;
+}
+
+.fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -39,7 +39,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/adminDashboard/*" element={<AdminDashboard isLoggedIn={isLoggedIn} />} />
+            <Route path="/adminDashboard/*" element={<AdminDashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           </Routes>
         </div>
         <Footer />

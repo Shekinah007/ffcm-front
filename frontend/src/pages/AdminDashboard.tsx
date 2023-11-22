@@ -12,7 +12,7 @@ import MemberManagement from "./MemberManagement";
 import MemberProfile from "../components/MemberProfile";
 import Logout from "../components/Logout";
 
-const AdminDashboard = ({ isLoggedIn }: any) => {
+const AdminDashboard = ({ isLoggedIn, setIsLoggedIn }: any) => {
 
     console.log("IS Logged State: ", isLoggedIn);
 
@@ -65,8 +65,8 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
     }, [])
 
     return (
-        <div className="admin-dashboard relative flex flex-col bg-white bg-bg6  bg-no-repeat bg-cover  min-h-screen md:h-screen">
-            <div className="min-h-screen flex flex-col md:flex-row md:items-center">
+        <div className="admin-dashboard relative flex flex-col bg-white bg-bg6 bg-no-repeat bg-cover  justify-center min-h-screen md:h-screen">
+            <div className="min-h-screen flex flex-col   md:flex-row md:items-center">
                 <DashboardMenu handlePage={setCurrentPage} currentPage={currentPage} />
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
@@ -74,7 +74,7 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
                     <Route path="/settings" element={<EditProfile />} />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
-                    <Route path="/logout" element={<Logout />} />
+                    <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />} />
                 </Routes>
                 {
                     firstName && (
