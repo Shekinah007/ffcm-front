@@ -6,7 +6,7 @@ import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
 
 const EditProfile = () => {
     return (
-        <div className="animate-rec bg-white/0 bg-cover bg-bg6 min-h-screen card p-3 mt-10 pt-10 rounded-lg w-screen flex flex-col items-center justify-center self-center">
+        <div className="entrance bg-white/0 min-h-screen card p-3 pt-20 rounded-lg w-screen flex flex-col items-center justify-center self-center">
             <h2 className="font-semibold text-xl mb-1 self-start ml-4">Edit Profile</h2>
             <hr className="bg-black w-[330px] mb-4" />
             <div className="flex flex-col gap-4">

@@ -33,41 +33,35 @@ const MemberProfile = () => {
     }, [])
 
     return (
-        <div className="animate-rec bg-cover w-full md:px-28 px-3 flex flex-col h-screen justify-center gap-6">
-            <div className="flex flex-col gap-2">
-                <h2 className="font-semibold text-2xl px-2">{userData && userData.firstName + " " + userData.lastName}</h2>
-                <hr className=" bg-black" />
+        <div className="member-profile w-full md:px-28 px-3 flex flex-col h-screen justify-center gap-6">
+            <div className="flex flex-col gap-1">
+                <h2 className="font-semibold text-2xl px-4 text-yellow-500">{userData && userData.firstName + " " + userData.lastName}</h2>
+                {/* <hr className=" bg-black" /> */}
             </div>
-            {
-                userData &&
-                <div className="flex flex-col gap-6 px-5">
-                    <div>
-                        <p className="font-semibold text-md text-gray-500">Phone: </p>
-                        <hr className=" bg-black" />
-                        <p className="font-semibold text-md text-right text-gray-700">{userData.phone}</p>
-                    </div>
-                    <div>
-                        <p className="font-semibold text-md text-gray-500">Username/Email: </p>
-                        <hr className=" bg-black" />
-                        <p className="font-semibold text-md text-right text-gray-700">{userData.username}</p>
-                    </div>
-                    <div>
-                        <p className="font-semibold text-md text-gray-500">Gender: </p>
-                        <hr className=" bg-black" />
-                        <p className="font-semibold text-md text-right text-gray-700">Male</p>
-                    </div>
-                    <div>
-                        <p className="font-semibold text-md text-gray-500">Address: </p>
-                        <hr className=" bg-black" />
-                        <p className="font-semibold text-md text-right text-gray-700">No Address</p>
-                    </div>
-                    <div>
-                        <p className="font-semibold text-md text-gray-500">Relationship Status: </p>
-                        <hr className=" bg-black" />
-                        <p className="font-semibold text-md text-right text-gray-700">Single</p>
-                    </div>
+
+            <div className="flex flex-col gap-6 px-5">
+                <div>
+                    <p className="font-semibold text-md text-gray-800">- Phone: </p>
+                    <hr className=" bg-black" />
+                    <p className="font-semibold text-md text-right text-gray-700 entrance">{userData && userData.phone} -</p>
                 </div>
-            }
+                <div>
+                    <p className="font-semibold text-md text-gray-800">- Username/Email: </p>
+                    <hr className=" bg-black" />
+                    <p className="font-semibold text-md text-right text-gray-700 entrance">{userData && userData.username} -</p>
+                </div>
+                <div>
+                    <p className="font-semibold text-md text-gray-800">- Gender: </p>
+                    <hr className=" bg-black" />
+                    <p className="font-semibold text-md text-right text-gray-700">Male -</p>
+                </div>
+                <div>
+                    <p className="font-semibold text-md text-gray-800">- Address: </p>
+                    <hr className=" bg-black" />
+                    <p className="font-semibold text-md text-right text-gray-700">No Address -</p>
+                </div>
+            </div>
+
 
             <Link to={"/adminDashboard/tithes"} className="rounded-md p-2 text-center self-end bg-yellow-500 text-white">
                 View Payment Records

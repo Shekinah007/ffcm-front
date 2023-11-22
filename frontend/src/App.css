@@ -41,7 +41,14 @@
 .home-page,
 .sign-page,
 .admin-dashboard,
-.not-found {
+.not-found,
+.log-out,
+.profile,
+.member-profile {
+    animation: entrance 0.7s;
+}
+
+.entrance {
     animation: entrance 0.7s;
 }
 

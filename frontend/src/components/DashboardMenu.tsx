@@ -4,7 +4,7 @@ import { AccountCircle, DashboardCustomize, FileOpen, Logout, NoteAdd, Settings 
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const DashboardMenu = ({ handlePage }: any) => {
+const DashboardMenu = ({ handlePage, currentPage }: any) => {
 
     const [menuOpen, setMenuOpen] = useState(true);
 
@@ -17,57 +17,36 @@ const DashboardMenu = ({ handlePage }: any) => {
             <button
                 onClick={() => { setMenuOpen(prevState => !prevState) }}
                 className={`md:hidden absolute top-1/2 -mt-[30px] flex items-center justify-center -right-[28px] py-3 pl-0 px-0 
-                pr-1 rounded-r-md  bg-black/30 hover:text-yellow-300
+                pr-1 rounded-r-md  bg-black/30 hover:text-yellow-300}
                 ${menuOpen && "-scale-x-100 rounded-r-none rounded-l-md pl-1 -right-[33px] text-yellow-300"}
                 `}>
                 {/* {">>"} */}
                 <DoubleArrowIcon />
             </button>
             <div className="flex flex-col gap-9 items-start duration-150">
-                <Link to={"/adminDashboard"} className="hover:text-yellow-400 duration-150 hover:scale-110">
+                <Link to={"/adminDashboard"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Profile" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <AccountCircle sx={{ fontSize: 30 }} />
-                        <button onClick={() => handlePage("Profile")}>Your Profile</button>
+                        <button onClick={() => handlePage("Profile")}>Profile</button>
                     </div>
                     <hr className="w-[120px]" />
                 </Link>
-                <Link to={"/adminDashboard/settings"} className="hover:text-yellow-400 duration-150 hover:scale-110">
+                <Link to={"/adminDashboard/settings"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Tithes" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <NoteAdd />
                         <button onClick={() => handlePage("Tithes")}>Records</button>
                     </div>
                     <hr className="w-[100px] " />
                 </Link>
-                <Link to={"/adminDashboard/entries"} className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <div className="flex gap-1 items-center">
-                        <FileOpen />
-                        <button onClick={() => handlePage("Entries")}>Entries</button>
-                    </div>
-                    <hr className="w-[110px] " />
-                </Link>
-                <Link to={"/adminDashboard/settings"} className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <div className="flex gap-1 items-center">
-                        <Settings />
-                        <button onClick={() => handlePage("Settings")}>Edit Profile</button>
-                    </div>
-                    <hr className="w-[120px] " />
-                </Link>
-                <Link to={"/adminDashboard/members"} className="hover:text-yellow-400 duration-150 hover:scale-110">
+
+                <Link to={"/adminDashboard/members"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "Management" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <AccountCircle sx={{ fontSize: 30 }} />
                         <button onClick={() => handlePage("Management")}>Members</button>
                     </div>
                     <hr className="w-[130px] " />
                 </Link>
-                <Link to={"/adminDashboard/memberProfile"} className="hover:text-yellow-400 duration-150 hover:scale-110">
-                    <div className="flex gap-1 items-center">
-                        <AccountCircle sx={{ fontSize: 30 }} />
-                        <button onClick={() => handlePage("MemberProfile")}>Member Profile</button>
-                    </div>
-                    <hr className="w-[170px] " />
-                </Link>
-
-                <Link to={"/adminDashboard/logout"} className="hover:text-yellow-400 duration-150 hover:scale-110 justify-self-end">
+                <Link to={"/adminDashboard/logout"} className={`hover:text-yellow-400 duration-150 hover:scale-110 ${currentPage === "LogOut" ? "text-yellow-300" : ""}`}>
                     <div className="flex gap-1 items-center">
                         <Logout sx={{ fontSize: 30 }} />
                         <button onClick={() => handlePage("LogOut")}>Log Out</button>

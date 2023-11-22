@@ -13,6 +13,8 @@ export default {
         "bg4": "url(/src/assets/images/candles-5690190_1280.jpg)",
         "bg5": "url(/src/assets/images/pexels-sky.jpg)",
         "bg6": "url(/src/assets/images/pexels-ovan-62693.jpg)",
+        // "bg6": "url(/src/assets/images/pexels-pixabay-276701.jpg)",
+        // "bg7": "url(/src/assets/images/pexels-gdtography-911738.jpg)"
       }
     },
   },

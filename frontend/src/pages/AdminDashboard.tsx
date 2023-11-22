@@ -65,9 +65,9 @@ const AdminDashboard = ({ isLoggedIn }: any) => {
     }, [])
 
     return (
-        <div className="admin-dashboard flex flex-col bg-white bg-no-repeat bg-cover min-h-screen">
+        <div className="admin-dashboard flex flex-col bg-white  bg-no-repeat bg-cover min-h-screen">
             <div className="min-h-screen flex flex-col md:flex-row md:items-center">
-                <DashboardMenu handlePage={setCurrentPage} />
+                <DashboardMenu handlePage={setCurrentPage} currentPage={currentPage} />
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
                     <Route path="/tithes/" element={<Tithes />} />

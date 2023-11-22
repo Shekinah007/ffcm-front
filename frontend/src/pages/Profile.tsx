@@ -12,7 +12,7 @@ type ProfileProps = {
 
 const Profile = ({ userData }: ProfileProps) => {
     return (
-        <div className="animate-rec pt-16 flex flex-col w-screen bg-cover bg-bg6 min-h-screen justify-center">
+        <div className="profile flex flex-col w-screen bg-cover  min-h-screen justify-center">
             <div className="py-4 flex flex-col bg-white/0 w-full m-0  rounded-md md:rounded-xl gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
                 <AccountCircle sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
                 <h2 className="text-2xl font-semibold">Profile Info</h2>
