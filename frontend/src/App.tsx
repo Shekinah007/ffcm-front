@@ -14,6 +14,8 @@ import Register from './components/Register'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import AdminDashboard from './pages/AdminDashboard'
+import Leadership from './pages/Leadership.tsx'
+import NotFoundPage from './pages/NotFoundPage.tsx'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,7 +25,7 @@ function App() {
   return (
     <Router>
       <div className="bg-black">
-        <ToastContainer autoClose={1500} transition={Flip} />
+        <ToastContainer autoClose={1500} transition={Slide} />
         <Navbar
           isSignedIn={isLoggedIn}
           currentPage={currentPage}
@@ -42,6 +44,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/leadership" element={<Leadership />} />
             <Route path="/adminDashboard/*"
               element={
                 <AdminDashboard
@@ -50,6 +53,7 @@ function App() {
                   setIsLoggedIn={setIsLoggedIn}
                 />}
             />
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </div>
         <Footer />

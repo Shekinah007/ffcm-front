@@ -5,6 +5,7 @@ import churchLogo from "../assets/images/ffcmLogo.png"
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import { Link } from "react-router-dom"
+import { Home } from '@mui/icons-material';
 
 
 const Navbar = ({ isSignedIn, currentPage, setCurrentPage }: any) => {
@@ -54,6 +55,7 @@ const Navbar = ({ isSignedIn, currentPage, setCurrentPage }: any) => {
         >
 
             <div className="" >
+
                 <img src={shieldLogo} alt="logo home" className='h-16 hidden md:block' />
             </div>
             <div className={`absolute top-50% left-3 w-11/12 flex flex-row items-center justify-between gap-2 duration-500 -translate-y-0 ${open && "-translate-y-44"} md:hidden`}>
@@ -72,6 +74,13 @@ const Navbar = ({ isSignedIn, currentPage, setCurrentPage }: any) => {
                     onClick={() => { highlightPage("Gallery"); }}>
                     <span className="md:hidden">- </span>
                     Gallery
+                    <hr className="mt-1" />
+                </Link>
+
+                <Link to={"/leadership"} className="p-1 hover:text-yellow-500 duration-300 md:border-b-2 border-yellow-500 hover:border-white hover:rounded-lg"
+                    onClick={() => { highlightPage("Leardership"); }}>
+                    <span className="md:hidden">- </span>
+                    Leadership
                     <hr className="mt-1" />
                 </Link>
 

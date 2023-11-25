@@ -6,10 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import Contact from "./Contact";
 import Navbar from "../components/Navbar";
 import { useOutletContext } from "react-router-dom";
+import Leadership from "./Leadership";
 
 const Home = () => {
-    // window.scrollTo(0, 0)
-
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
 
     useEffect(() => {
@@ -105,9 +104,10 @@ const Home = () => {
                     </div>
                 </div>
                 <About />
+                <Leadership isIntersecting={isIntersecting} />
 
-                <div className={`worship-time flex flex-col-reverse md:flex-row justify-center items-center md:justify-between w-screen`}>
-                    <div className={`animate  px-10  py-20 md:py-5 flex flex-col gap-5  w-full md:w-1/2 opacity-0 ${isIntersecting && "translate-y-0 opacity-100"}`}>
+                <div className={`worship-time  flex flex-col-reverse md:flex-row justify-center items-center md:justify-between w-screen`}>
+                    <div className={`animate  px-10  py-20 md:py-5 flex flex-col gap-5  w-full md:w-1/2 opacity-0 ${isIntersecting && " translate-y-0 opacity-100 enter"}`}>
                         <h2 className="text-2xl font-semibold font-serif">Worship Hours</h2>
                         <div className="flex flex-col gap-2 ">
                             <h3 className="text-yellow-400 font-semibold text-lg">Sundays</h3>

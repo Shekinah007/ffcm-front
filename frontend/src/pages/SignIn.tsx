@@ -76,7 +76,10 @@ const SignIn = ({ setCurrentPage, setIsLoggedIn, isLoggedIn }: any) => {
             }).catch((error) => {
                 setVisibility(false)
                 console.log("Error: ", error)
-            }).finally(() => { setVisibility(false) })
+            }).finally(() => {
+                setVisibility(false)
+                toast("No network connection")
+            })
 
         }
 
