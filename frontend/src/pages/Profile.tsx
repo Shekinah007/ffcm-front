@@ -11,6 +11,7 @@ type ProfileProps = {
 }
 
 const Profile = ({ userData }: ProfileProps) => {
+    console.log("Profile: ", userData)
     return (
         <div className="profile flex flex-col  w-screen bg-cover min-h-screen justify-center">
             <div className="py-4 flex flex-col bg-white/0 w-full m-0  rounded-md md:rounded-xl gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">

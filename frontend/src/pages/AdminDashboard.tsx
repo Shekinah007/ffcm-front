@@ -45,7 +45,6 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
     const [lastName, setLastName] = useState<string>("")
     const [logoutModal, setLogoutModal] = useState(false)
 
-
     const [userData, setUserData] = useState({
         firstName: "",
         lastName: "",
@@ -104,7 +103,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
                     <Route path="/tithes/" element={<Tithes />} />
-                    <Route path="/settings" element={<EditProfile />} />
+                    <Route path="/settings" element={<EditProfile userData={userData} />} />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
                     <Route path="/announcements" element={<Announcements />} />

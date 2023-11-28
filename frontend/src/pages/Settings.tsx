@@ -7,9 +7,18 @@ import { useState } from 'react';
 import { Upload } from '@mui/icons-material';
 import { uploadFile } from "@uploadcare/upload-client"
 
-const EditProfile = () => {
+const EditProfile = ({ userData }: any) => {
+
+    console.log("User Data: ", userData)
 
     const [profileImg, setProfileImg] = useState()
+    const [firstName, setFirstName] = useState(userData.firstName)
+    const [lastName, setLastName] = useState(userData.lastName)
+    const [userName, setUsername] = useState(userData.username)
+    const [phone, setPhone] = useState(userData.phone)
+    const [password, setPassword] = useState()
+    const [confirmPassword, setConfirmPassword] = useState()
+
 
 
     const handleSave = async (e: any) => {
@@ -23,6 +32,11 @@ const EditProfile = () => {
                 store: "auto"
             }
         )
+
+        const imgUrl = result.cdnUrl
+
+        console.log("Result: ", result)
+        console.log("IMAGE URL: ", imgUrl)
 
 
         console.log(profileImg);
@@ -46,28 +60,40 @@ const EditProfile = () => {
                         </label>
                         <div className="card bg-gray-200 rounded-md p-1">
                             <PersonOutlineOutlinedIcon />
-                            <input className="w-[300px] p-1 bg-gray-200" id="firstName" type="text"></input>
+                            <input className="w-[300px] p-1 bg-gray-200" id="firstName" type="text"
+                                onChange={(e) => setFirstName(e.target.value)}
+                                value={firstName}
+                            ></input>
                         </div>
                     </div>
                     <div className="flex flex-col gap-1 ">
                         <label className="font-semibold text-gray-500" htmlFor="lastName">Last Name</label>
                         <div className="card bg-gray-200 rounded-md p-1">
                             <PersonOutlineOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="lastName" type="text"></input>
+                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="lastName" type="text"
+                                onChange={(e) => setLastName(e.target.value)}
+                                value={lastName}
+                            ></input>
                         </div>
                     </div>
                     <div className="flex flex-col gap-1 ">
                         <label className="font-semibold text-gray-500" htmlFor="email">Email</label>
                         <div className="card bg-gray-200 rounded-md p-1">
                             <EmailOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="email" type="email"></input>
+                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="email" type="email"
+                                onChange={(e) => setUsername(e.target.value)}
+                                value={userName}
+                            ></input>
                         </div>
                     </div>
                     <div className="flex flex-col gap-1 ">
                         <label className="font-semibold text-gray-500" htmlFor="phone">Phone</label>
                         <div className="card bg-gray-200 rounded-md p-1">
                             <PhoneEnabledOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="phone" type="phone"></input>
+                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="phone" type="phone"
+                                onChange={(e) => setPhone(e.target.value)}
+                                value={phone}
+                            ></input>
                         </div>
                     </div>
                     <div className="flex flex-col gap-1 ">
