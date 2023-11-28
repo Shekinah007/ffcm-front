@@ -7,6 +7,7 @@ type ProfileProps = {
         lastName: string,
         phone: number,
         username: string,
+        imgUrl: string,
     }
 }
 
@@ -15,7 +16,17 @@ const Profile = ({ userData }: ProfileProps) => {
     return (
         <div className="profile flex flex-col  w-screen bg-cover min-h-screen justify-center">
             <div className="py-4 flex flex-col bg-white/0 w-full m-0  rounded-md md:rounded-xl gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
-                <AccountCircle sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
+
+                {
+                    userData.imgUrl ?
+                        <img src={userData.imgUrl} alt="Profile Image"
+                            className="rounded-full h-[120px] w-[120px] self-center border-4 border-yellow-500 object-contain bg-black"
+                        >
+                        </img>
+                        :
+                        <AccountCircle sx={{ fontSize: 100 }} className="self-center text-yellow-500" />
+                }
+
                 <h2 className="text-2xl font-semibold">Profile Info</h2>
                 <hr className="bg-black mb-4" />
                 <table className="card text-gray-700 md:w-[500px] self-center" >

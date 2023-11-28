@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import LoadingOverlay from './LoadingOverlay';
 
 const Register = () => {
 
     const navigate = useNavigate()
 
+    const [visibility, setVisibility] = useState(false)
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     // const [gender, setGender] = useState<string>("");
@@ -14,13 +16,10 @@ const Register = () => {
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-
     const handleRegister = (e: any) => {
         e.preventDefault()
 
         const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-
-
 
         const userData = {
             firstName: firstName,
@@ -55,7 +54,7 @@ const Register = () => {
 
         console.log("passed")
 
-
+        setVisibility(true);
         // fetch("http://localhost:3000/auth/register", {
         // fetch("https://ffcm.zeabur.app/auth/register", {
         fetch("https://eager-dog-onesies.cyclic.app/auth/register", {
@@ -80,12 +79,15 @@ const Register = () => {
             setTimeout(() => {
                 navigate("/signin")
             }, 800)
+        }).finally(() => {
+            setVisibility(false)
         })
         console.log("Submitted!!")
     }
 
     return (
         <div className='sign-page pt-14 min-h-screen flex flex-col justify-center text-center items-center bg-bg3 bg-cover bg-no-repeat'>
+            <LoadingOverlay visibility={visibility} />
 
             <div className="rounded-lg bg-yellow-400/90 text-white w-[85%] md:w-[400px] py-10 flex flex-col  justify-center gap-3">
                 <div className="">

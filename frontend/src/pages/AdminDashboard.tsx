@@ -39,6 +39,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
     }
 
     const [currentPage, setCurrentPage] = useState("Profile")
+    const [editProfile, setEditProfile] = useState(false)
 
     const [username, setUsername] = useState<string>("")
     const [firstName, setFirstName] = useState<string>("")
@@ -50,6 +51,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
         lastName: "",
         username: "",
         phone: 0,
+        imgUrl: "",
     })
 
     const accessToken = localStorage.getItem('accessToken')
@@ -82,7 +84,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 setLastName(data.lastName)
             }
         })
-    }, [])
+    }, [editProfile])
 
 
     return (
@@ -92,6 +94,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                     handlePage={setCurrentPage}
                     currentPage={currentPage}
                     setLogoutModal={setLogoutModal}
+                    userData={userData}
                 />
                 {logoutModal &&
                     <Logout
@@ -103,7 +106,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
                     <Route path="/tithes/" element={<Tithes />} />
-                    <Route path="/settings" element={<EditProfile userData={userData} />} />
+                    <Route path="/settings" element={<EditProfile userData={userData} setEditProfile={setEditProfile} />} />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
                     <Route path="/announcements" element={<Announcements />} />
