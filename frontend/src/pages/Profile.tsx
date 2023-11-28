@@ -1,5 +1,6 @@
 import { AccountCircle, Settings } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
+import { motion } from "framer-motion"
 
 type ProfileProps = {
     userData: {
@@ -14,7 +15,14 @@ type ProfileProps = {
 const Profile = ({ userData }: ProfileProps) => {
     console.log("Profile: ", userData)
     return (
-        <div className="profile flex flex-col  w-screen bg-cover min-h-screen justify-center">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1
+            }}
+            exit={{ opacity: 0 }}
+
+            className=" flex flex-col  w-screen bg-cover min-h-screen justify-center">
             <div className="py-4 flex flex-col bg-white/0 w-full m-0  rounded-md md:rounded-xl gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
 
                 {
@@ -58,7 +66,7 @@ const Profile = ({ userData }: ProfileProps) => {
                 <Settings />
                 <p>Edit</p>
             </Link>
-        </div>
+        </motion.div>
     )
 }
 
