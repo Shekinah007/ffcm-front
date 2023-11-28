@@ -1,5 +1,4 @@
-
-
+import { Link } from "react-router-dom"
 
 export const Message = ({ title, body }: any) => {
     return (
@@ -7,7 +6,12 @@ export const Message = ({ title, body }: any) => {
             <h2 className="text-yellow-600 text-lg font-semibold">{title && title}:</h2>
             <hr className="bg-black" />
             <p>{body && body}</p>
-            <button className="self-end rounded-md p-2 text-yellow-600 font-semibold">Details {">>"}</button>
+            {/* <button className="self-end rounded-md p-2 text-yellow-600 font-semibold">Details {">>"}</button> */}
+            <Link to={"/adminDashboard/bulletinDetails"}
+                className="self-end rounded-md p-2 text-yellow-600 font-semibold"
+            >
+                More Details {">>"}
+            </Link>
         </div>
     )
 }

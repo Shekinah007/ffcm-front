@@ -15,6 +15,7 @@ import Logout from "../components/Logout";
 import image404 from "../assets/illustrations/401 Error Unauthorized-pana (1).png"
 import { Announcement } from "@mui/icons-material";
 import Announcements from "./Announcements";
+import BulletinDetails from "./BulletinDetails";
 
 const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) => {
 
@@ -110,6 +111,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
                     <Route path="/announcements" element={<Announcements />} />
+                    <Route path="/bulletinDetails" element={<BulletinDetails userData={userData} />} />
                 </Routes>
                 {
                     firstName && (
