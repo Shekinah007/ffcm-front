@@ -17,7 +17,7 @@ const EditProfile = ({ userData, setEditProfile }: any) => {
     console.log("User Data: ", userData)
 
     const [visibility, setVisibility] = useState(false)
-    const [profileImg, setProfileImg] = useState()
+    const [profileImg, setProfileImg] = useState<any>()
     const [firstName, setFirstName] = useState(userData.firstName)
     const [lastName, setLastName] = useState(userData.lastName)
     const [userName, setUsername] = useState(userData.username)
@@ -148,7 +148,12 @@ const EditProfile = ({ userData, setEditProfile }: any) => {
                             Profile Picture
                         </label>
                         <input id="profile-pic" type="file" title="profile-pic"
-                            onChange={(e) => setProfileImg(e.target.files[0])} accept="image/*,.png,.jpg"
+                            onChange={(e) => {
+
+
+                                setProfileImg(e.target.files ? e.target.files[0] : "")
+
+                            }} accept="image/*,.png,.jpg"
                         ></input>
                     </div>
                     <div className="flex flex-col gap-1">
