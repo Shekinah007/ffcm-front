@@ -22,7 +22,7 @@ const Profile = ({ userData }: ProfileProps) => {
             }}
             exit={{ opacity: 0 }}
 
-            className=" flex flex-col  w-screen bg-cover min-h-screen justify-center">
+            className=" flex flex-col w-screen bg-cover min-h-screen justify-center">
             <div className="py-4 flex flex-col bg-white/0 w-full m-0  rounded-md md:rounded-xl gap-2 mt-10 px-5 md:px-32 text-gray-900 font-semibold ">
 
                 {
@@ -37,7 +37,7 @@ const Profile = ({ userData }: ProfileProps) => {
 
                 <h2 className="text-2xl font-semibold">Profile Info</h2>
                 <hr className="bg-black mb-4" />
-                <table className="card text-gray-700 md:w-[500px] self-center" >
+                <table className="card text-sm text-gray-700 md:w-[500px] self-center" >
                     <tr>
                         <td>First Name</td>
                         <td>{userData && userData.firstName}</td>

@@ -42,22 +42,22 @@ const MemberProfile = () => {
             <div className="flex flex-col gap-6 px-5">
                 <div>
                     <p className="font-semibold text-md text-gray-800">- Phone: </p>
-                    <hr className=" bg-black" />
+                    <hr className=" bg-gray-300 h-1 rounded-full" />
                     <p className="font-semibold text-md text-right text-gray-700 entrance">{userData && userData.phone} -</p>
                 </div>
                 <div>
                     <p className="font-semibold text-md text-gray-800">- Username/Email: </p>
-                    <hr className=" bg-black" />
+                    <hr className=" bg-gray-300 h-1 rounded-full" />
                     <p className="font-semibold text-md text-right text-gray-700 entrance">{userData && userData.username} -</p>
                 </div>
                 <div>
                     <p className="font-semibold text-md text-gray-800">- Gender: </p>
-                    <hr className=" bg-black" />
+                    <hr className=" bg-gray-300 h-1 rounded-full" />
                     <p className="font-semibold text-md text-right text-gray-700">Male -</p>
                 </div>
                 <div>
                     <p className="font-semibold text-md text-gray-800">- Address: </p>
-                    <hr className=" bg-black" />
+                    <hr className=" bg-gray-300 h-1 rounded-full" />
                     <p className="font-semibold text-md text-right text-gray-700">No Address -</p>
                 </div>
             </div>

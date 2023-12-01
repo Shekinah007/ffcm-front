@@ -92,7 +92,7 @@ const SignIn = ({ setCurrentPage, setIsLoggedIn, isLoggedIn }: any) => {
 
             <div className={`rounded-lg bg-yellow-400/90 transition-all duration-1000 ${validationError && "bg-gray-700/80 border-8 border-gray-800 "}  text-white h-[400px] w-[300px] flex flex-col items-center justify-center gap-3`}>
                 <div className="">
-                    <h2 className="font-semibold text-xl text-center">Admin Login</h2>
+                    <h2 className="font-semibold text-xl text-center">Login</h2>
                     <hr className="w-[200px] mt-1 mb-5" />
                 </div>
                 <form className="signin flex flex-col gap-3">

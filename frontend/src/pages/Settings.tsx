@@ -4,11 +4,12 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockPersonOutlinedIcon from '@mui/icons-material/LockPersonOutlined';
 import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
 import { useState } from 'react';
-import { Upload, Visibility } from '@mui/icons-material';
+import { AddAPhoto, Image, Upload, Visibility } from '@mui/icons-material';
 import { uploadFile } from "@uploadcare/upload-client"
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import LoadingOverlay from '../components/LoadingOverlay';
+import AddPhotoAlternateRoundedIcon from '@mui/icons-material/AddPhotoAlternateRounded';
 
 const EditProfile = ({ userData, setEditProfile }: any) => {
 
@@ -30,8 +31,6 @@ const EditProfile = ({ userData, setEditProfile }: any) => {
     const handleSave = async (e: any) => {
         console.log("Saving profile...")
         e.preventDefault();
-
-
 
         const result = await uploadFile(
             profileImg,
@@ -140,76 +139,77 @@ const EditProfile = ({ userData, setEditProfile }: any) => {
 
 
             <div className="flex flex-col gap-4">
-                <form className="flex flex-col gap-3 md:grid md:grid-cols-2 md:gap-6"
+                <form className="flex flex-col gap-2"
                     onSubmit={(e) => handleUpdate(e)}
                 >
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="profile-pic">
-                            Profile Picture
+                        <label className="font-semibold self-center  text-sm 
+                            text-yellow-500" htmlFor="profile-pic">
+                            {/* <AddAPhoto sx={{ fontSize: 70 }}></AddAPhoto> */}
+                            <AddPhotoAlternateRoundedIcon sx={{ fontSize: 70 }} />
                         </label>
-                        <input id="profile-pic" type="file" title="profile-pic"
+                        <input id="profile-pic" type="file" title="profile-pic" className="h-0 w-0"
                             onChange={(e) => {
-
-
                                 setProfileImg(e.target.files ? e.target.files[0] : "")
-
                             }} accept="image/*,.png,.jpg"
                         ></input>
                     </div>
-                    <div className="flex flex-col gap-1">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="firstName">
-                            First Name
-                        </label>
-                        <div className="card bg-gray-200 rounded-md p-1">
-                            <PersonOutlineOutlinedIcon />
-                            <input className="w-[300px] p-1 bg-gray-200" id="firstName" type="text"
-                                onChange={(e) => setFirstName(e.target.value)}
-                                value={firstName}
-                            ></input>
+                    <div className="flex flex-col gap-2 md:grid md:grid-cols-2 md:gap-6">
+                        <div className="flex flex-col gap-1">
+                            <label className="font-semibold text-gray-500 text-sm" htmlFor="firstName">
+                                First Name
+                            </label>
+                            <div className="card bg-gray-200 rounded-md p-1">
+                                <PersonOutlineOutlinedIcon />
+                                <input className="w-[300px] p-1 bg-gray-200" id="firstName" type="text"
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                    value={firstName}
+                                ></input>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col gap-1 ">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="lastName">Last Name</label>
-                        <div className="card bg-gray-200 rounded-md p-1">
-                            <PersonOutlineOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="lastName" type="text"
-                                onChange={(e) => setLastName(e.target.value)}
-                                value={lastName}
-                            ></input>
+                        <div className="flex flex-col gap-1 ">
+                            <label className="font-semibold text-gray-500 text-sm" htmlFor="lastName">Last Name</label>
+                            <div className="card bg-gray-200 rounded-md p-1">
+                                <PersonOutlineOutlinedIcon />
+                                <input className="rounded-md p-1 w-[300px] bg-gray-200" id="lastName" type="text"
+                                    onChange={(e) => setLastName(e.target.value)}
+                                    value={lastName}
+                                ></input>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col gap-1 ">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="email">Email</label>
-                        <div className="card bg-gray-200 rounded-md p-1">
-                            <EmailOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="email" type="email"
-                                onChange={(e) => setUsername(e.target.value)}
-                                value={userName}
-                            ></input>
+                        <div className="flex flex-col gap-1 ">
+                            <label className="font-semibold text-gray-500 text-sm" htmlFor="email">Email</label>
+                            <div className="card bg-gray-200 rounded-md p-1">
+                                <EmailOutlinedIcon />
+                                <input className="rounded-md p-1 w-[300px] bg-gray-200" id="email" type="email"
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    value={userName}
+                                ></input>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col gap-1 ">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="phone">Phone</label>
-                        <div className="card bg-gray-200 rounded-md p-1">
-                            <PhoneEnabledOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="phone" type="phone"
-                                onChange={(e) => setPhone(e.target.value)}
-                                value={phone}
-                            ></input>
+                        <div className="flex flex-col gap-1 ">
+                            <label className="font-semibold text-gray-500 text-sm" htmlFor="phone">Phone</label>
+                            <div className="card bg-gray-200 rounded-md p-1">
+                                <PhoneEnabledOutlinedIcon />
+                                <input className="rounded-md p-1 w-[300px] bg-gray-200" id="phone" type="phone"
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    value={phone}
+                                ></input>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col gap-1 ">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="currentPassword">Current Password</label>
-                        <div className="card bg-gray-200 rounded-md p-1">
-                            <LockPersonOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="currentPassword" type="password"></input>
+                        <div className="flex flex-col gap-1 ">
+                            <label className="font-semibold text-gray-500 text-sm" htmlFor="currentPassword">Current Password</label>
+                            <div className="card bg-gray-200 rounded-md p-1">
+                                <LockPersonOutlinedIcon />
+                                <input className="rounded-md p-1 w-[300px] bg-gray-200" id="currentPassword" type="password"></input>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col gap-1 ">
-                        <label className="font-semibold text-gray-500 text-sm" htmlFor="newPassword">New Password</label>
-                        <div className="card bg-gray-200 rounded-md p-1">
-                            <LockPersonOutlinedIcon />
-                            <input className="rounded-md p-1 w-[300px] bg-gray-200" id="newPassword" type="password"></input>
+                        <div className="flex flex-col gap-1 ">
+                            <label className="font-semibold text-gray-500 text-sm" htmlFor="newPassword">New Password</label>
+                            <div className="card bg-gray-200 rounded-md p-1">
+                                <LockPersonOutlinedIcon />
+                                <input className="rounded-md p-1 w-[300px] bg-gray-200" id="newPassword" type="password"></input>
+                            </div>
                         </div>
                     </div>
                     <hr className="bg-black w-[330px] mb-2 mt-2" />

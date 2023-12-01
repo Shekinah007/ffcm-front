@@ -52,6 +52,7 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
         lastName: "",
         username: "",
         phone: 0,
+        role: "",
         imgUrl: "",
     })
 
@@ -106,8 +107,10 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 }
                 <Routes>
                     <Route path="/" element={<Profile userData={userData} />} />
-                    <Route path="/tithes/" element={<Tithes />} />
-                    <Route path="/settings" element={<EditProfile userData={userData} setEditProfile={setEditProfile} />} />
+                    <Route path="/tithes/" element={<Tithes userData={userData} />} />
+                    <Route path="/settings"
+                        element={<EditProfile userData={userData} setEditProfile={setEditProfile} />}
+                    />
                     <Route path="/members" element={<MemberManagement />} />
                     <Route path="/memberProfile/:username" element={<MemberProfile />} />
                     <Route path="/announcements" element={<Announcements />} />
@@ -136,12 +139,8 @@ const AdminDashboard = ({ isLoggedIn, setIsLoggedIn, setMainCurrentPage }: any) 
                 }
 
 
-
-
-
-
                 <a href="https://www.freepik.com/free-vector/abstract-desktop-background-white-geometric-design-vector_18705217.htm#from_view=detail_alsolike"
-                    className="absolute bottom-0 right-0 text-sm text-gray-600/70 font-semibold"
+                    className="absolute bottom-0 right-0 text-sm text-gray-600/40 font-semibold"
                 >
                     Image by rawpixel.com on Freepik
                 </a>
